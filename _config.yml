@@ -21,11 +21,11 @@ description: >- # this means to ignore newlines until "baseurl:"
   계속 변화하는 블로그가 될 것입니다.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: 
 github_username:  feynubrick
 
 # Build settings
 markdown: kramdown
+# theme: jekyll-theme-midnight
 theme: minima
 plugins:
   - jekyll-feed
