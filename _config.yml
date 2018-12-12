@@ -13,16 +13,16 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Your awesome title
-email: your-email@example.com
+title: feynubrick의 블로그
+email: feynubrick@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  웹 개발 공부를 시작하는 초보 개발자입니다.
+  공부한 내용을 정리해 올리고, 그 과정에서 겪는 문제들도 올릴 생각입니다.
+  계속 변화하는 블로그가 될 것입니다.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+twitter_username: 
+github_username:  feynubrick
 
 # Build settings
 markdown: kramdown
