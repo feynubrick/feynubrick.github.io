@@ -14,6 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: feynubrick의 블로그
+author: feynubrick
 email: feynubrick@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   웹 개발 공부를 시작하는 초보 개발자입니다.
@@ -22,6 +23,8 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://feynubrick.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  feynubrick
+timezone: Asia/Seoul
+encoding: utf-8
 
 # Build settings
 markdown: kramdown
