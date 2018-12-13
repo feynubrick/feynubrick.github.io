@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "코드 스테이츠 체험수기: 4주 후"
+comments: true
+author: feynubrick
 ---
 
 # 웹 개발자로 새로 시작하기

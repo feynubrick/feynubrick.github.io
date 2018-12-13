@@ -17,7 +17,11 @@ layout: default
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
         <span class="post-meta">
           {{ post.date | date: date_format }}
-          <a href="{{ site.url }}{{ post.url }}#disqus_thread">0 Comments</a>
+          {%- if post.comments -%}
+            <span>
+              • <a href="{{ site.url }}{{ post.url }}#disqus_thread">0 Comments</a>
+            </span>
+          {%- endif -%}
         </span>
         <h3>
           <a class="post-link" href="{{ post.url | relative_url }}">
