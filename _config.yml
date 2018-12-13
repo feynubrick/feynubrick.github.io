@@ -20,15 +20,17 @@ description: >- # this means to ignore newlines until "baseurl:"
   공부한 내용을 정리해 올리고, 그 과정에서 겪는 문제들도 올릴 생각입니다.
   계속 변화하는 블로그가 될 것입니다.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://feynubrick.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  feynubrick
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-midnight
-# theme: minima
+# theme: jekyll-theme-midnight
+theme: minima
 plugins:
   - jekyll-feed
+
+disqus_shortname: feynubrick
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
