@@ -25,8 +25,8 @@ github_username:  feynubrick
 
 # Build settings
 markdown: kramdown
-# theme: jekyll-theme-midnight
-theme: minima
+theme: jekyll-theme-midnight
+# theme: minima
 plugins:
   - jekyll-feed
 
