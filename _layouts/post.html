@@ -13,7 +13,11 @@ comments: true
       </time>
       {%- if page.author -%}
         • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
-      {%- endif -%}</p>
+      {%- endif -%}
+      {% if page.comments %}
+        • <a href="{{ site.url }}{{ page.url }}#disqus_thread">0 Comments</a>
+      {% endif %}
+    </p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
