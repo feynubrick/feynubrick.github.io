@@ -1,0 +1,12 @@
+.center {
+    text-align: center;
+    margin: auto;
+    padding: 30px;
+    width: 100%; /* if width is not set center aligning has no effect */
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
