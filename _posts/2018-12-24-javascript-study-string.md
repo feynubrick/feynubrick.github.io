@@ -47,8 +47,8 @@ author: feynubrick
 - 코드스테이츠의 프리코스 강의
 - MDN(Mozilla Developer Network Web Docs)
 
-이중 코드스테이츠의 프리코스 강의에서 대부분의 내용을 가져왔고, 보완이 필요한 부분만 MDN에서 발췌해왔다.
-가져온 모든 부분에 표시를 하고 싶지만 그렇게 적기엔 너무 힘들기도하고, 이 글은 학술논문이 아니니 거기까지 하지 못하는(않는) 것을 양해해주시기를 부탁한다.
+이중 코드스테이츠의 프리코스 강의에서는 다루는 내용의 얼개와 일부분의 내용을 가져왔고, 각 얼개의 세세한 부분은 MDN에서 발췌하고 링크를 달았다.
+가져온 모든 부분에 출처를 따로따로 표시하고 싶지만 그렇게 적기엔 너무 힘들기도하고, 이 글은 학술논문이 아니니 거기까지 하지 못하는(않는) 것을 양해해주시기를 부탁한다.
 
 ## 기본 용법
 
@@ -57,7 +57,7 @@ author: feynubrick
 
 ### 문자 하나에 접근, 그러나 읽기 전용
 
-문자 하나에 []와 index를 사용해 배열에서 항목을 접근하듯 할 수 있다. 그러나 문자열에서는, 각 항목이 읽기 전용이라 값을 바꿀 수는 없다.
+문자 하나에 `[ ]`와 index를 사용해 배열에서 항목을 접근하듯 할 수 있다. 그러나 문자열에서는, 각 항목이 읽기 전용이라 값을 바꿀 수는 없다.
 
 ```javascript
 var str = 'Star Wars';
@@ -89,9 +89,14 @@ var title = "The Hitchhiker's Guide to the Galaxy";
 console.log(title.length); // 36
 ```
 
-## 메서드
+## 메서드(methods)
 
-문자열 변수를 조작할 수 있는 메서드들에 대해 공부해본다.
+메서드는 객체지향 언어인 C++을 공부할 때 배웠었다.
+메서드는 어떤 객체(C++에서는 class에 의해 만들어진)의 속성(property)를 조작해 어떤 결과를 만들어내는 객체에 딸린 함수라고 이해하고 있다.
+
+내가 배웠던 C나 C++과는 다르게 자바스크립트의 모든 변수는 객체라고 볼 수 있다(어디선가 들은 말이다. 모든 변수가 객체라는 주장이 참인지 아닌지에 판별하려면, 근거를 찾는 등 추가로 공부를 해야한다.).
+따라서 문자열 변수도 역시 객체여서, 여기에 딸린 여러 메서드를 적용할 수 있다.
+여기서는 문자열을 조작할 수 있는 메서드들 중 자주쓰이고 유용한 메서드에 대해 공부해본다.
 
 ### [indexOf()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf)
 
@@ -146,13 +151,16 @@ console.log(message.indexOf()); // -1
 ```
 
 
-
 ### [repeat()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat)
 
-- 문자열을 반복
+- 말 그대로 문자열을 반복해서 덧붙인다.
 
 ```javascript
+var chorus = 'Because I\'m happy. ';
 
+console.log('Chorus lyrics for "Happy": ' + chorus.repeat(27));
+
+// expected output: "Chorus lyrics for "Happy": Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. "
 ```
 
 ### [trim](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim)
@@ -181,6 +189,6 @@ console.log(message.indexOf()); // -1
 
 ```javascript
 var p = 'The quick brown fox jumped over the lazy dog. If the dog reacted, was it really lazy?';
-var regex = /dog/gi;
+var regex = /dog/gi; // 정규표현식
 console.log(p.replace(regex, 'ferret')); // "The quick brown fox jumped over the lazy ferret. If the ferret reacted, was it really lazy?"
 ```
