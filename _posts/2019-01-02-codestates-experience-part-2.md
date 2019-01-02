@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "코드 스테이츠 체험수기: 9주 후"
+title: "코드 스테이츠 프리코스 체험수기: 9주 후"
 comments: true
 author: feynubrick
 date:   2019-01-02
@@ -89,16 +89,16 @@ HTML과 CSS는 딱 한시간 공부하고 이를 DOM과 함께 사용해 과제�
 underbar는 functional programming을 자바스크립트에서 구현하는 것을 도와주는 일종의 함수 모음이라고 할 수 있는 underscore나 lodash의 함수를 직접 짜보는 문제다.
 나중에 이런 함수들을 사용하더라도 어떤 식으로 돌아가는지 정도는 이해해보라는 의도의 문제인 것 같다.
 
-<figure class="center">
-  <img src="http://t1.daumcdn.net/liveboard/mykcatchup/0ec1d99738d04bfba00e05473108cb3a.JPG" alt="bonobono_ppt"/>
-  <figcaption>전설의 보노보노 ppt. 맹세하는데 이 정도는 아니었다. (출처: 카카오1분)</figcaption>
-</figure>
-
 twittler는 HTML/CSS와 DOM을 사용해 간단한 웹 응용프로그램을 만들어보는 과제다.
 결과를 눈으로 직접 확인하면서 만들 수 있는 유일한 과제기도 하다.
 또 나의 디자인 감각이 정말 뛰어나게 형편없다는 사실을 다시한번 깨닫게 해준다.
 프론트엔드 작업흐름(workflow)과 HTML/CSS, DOM, 자바스크립트 모두를 사용해야하는 종합선물세트같은 과제라 내가 배운 것들이 대체 어디 쓰이는 것인지 알 수 있어 좋았다.
 오프세션 해커톤에서 활용할 수 있는 것들이라 더욱더 활용도가 높은 과제였다.
+
+<figure class="center">
+  <img src="http://t1.daumcdn.net/liveboard/mykcatchup/0ec1d99738d04bfba00e05473108cb3a.JPG" alt="bonobono_ppt"/>
+  <figcaption>전설의 보노보노 ppt. 맹세하는데 이 정도는 아니었다. (출처: 카카오1분)</figcaption>
+</figure>
 
 recursion의 경우 재귀함수를 연습하는 기회가 되는데, JSON의 stringify와 DOM의 getElementsByClass 함수를 직접 구현해보는 것이 주 과제이다. 나머지 하나는 JSON.parse 를 구현하는 것인데, 글을 쓰는 현재도 풀고 있을 만큼 난이도가 있다.
 나머지 두 문제도 간단한 편은 아니지만, 재귀함수를 사용하면 상당히 깔끔하게 해결할 수 있다.
