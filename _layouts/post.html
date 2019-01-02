@@ -12,21 +12,16 @@ layout: default
       </time>
       {%- if page.author -%}
         • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
-      {%- endif -%}
-      {% if page.comments %}
-        • <a href="{{ site.url }}{{ page.url }}#disqus_thread">0 Comments</a>
-      {% endif %}
-    </p>
+      {%- endif -%}</p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
     {{ content }}
   </div>
 
-
-{%- if page.comments -%}
-  {%- include disqus_comments.html -%}
-{%- endif -%}
+  {%- if page.comments -%}
+    {%- include disqus_comments.html -%}
+  {%- endif -%}
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
