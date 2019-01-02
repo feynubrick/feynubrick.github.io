@@ -4,6 +4,7 @@ title: "코드 스테이츠 프리코스 체험수기: 4주 후"
 comments: true
 author: feynubrick
 date:   2018-12-12
+tags: [CodeStates]
 ---
 
 # 웹 개발자로 새로 시작하기

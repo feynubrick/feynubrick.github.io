@@ -4,6 +4,7 @@ title: "자바스크립트 공부 // 2. 수(Number)와 수학(Math)"
 comments: true
 author: feynubrick
 date:   2018-12-24
+tags: [JavaScript]
 ---
 # 정리한 내용의 출처
 여기 정리된 내용은 코드스테이츠와 MDN(Mozilla Developer Network Web Docs)에서 가져온 것을 나름대로 소화해본 것이다.

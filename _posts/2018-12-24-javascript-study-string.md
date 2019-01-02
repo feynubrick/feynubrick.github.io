@@ -4,6 +4,7 @@ title: "자바스크립트 공부 // 1. 문자열(String)"
 comments: true
 author: feynubrick
 date:   2018-12-24
+tags: [JavaScript]
 ---
 
 # "자바스크립트 공부" 시리즈를 시작하면서

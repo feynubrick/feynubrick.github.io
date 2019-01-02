@@ -4,6 +4,7 @@ title: "코드 스테이츠 프리코스 체험수기: 9주 후"
 comments: true
 author: feynubrick
 date:   2019-01-02
+tags: [CodeStates]
 ---
 
 이 글은 코드 스테이츠의 프리코스를 들으면서 느꼈던 것들, 관심있는 사람들이 궁금해할 만한 것들을 적은 체험수기의 두번째 포스트다.
