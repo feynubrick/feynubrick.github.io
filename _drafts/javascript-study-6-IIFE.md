@@ -1,4 +1,11 @@
-[TOC]
+---
+layout: post
+title: "자바스크립트 공부 // 즉시실행함수 (IIFE)"
+comments: true
+author: feynubrick
+date:   2019-01-03
+tags: [JavaScript, Study]
+---
 
 # 들어가면서
 
@@ -37,8 +44,6 @@ for (let i = 0, prefix; i < prefixes.length; i++) {
 
 왜 IIFE를 써야하는 것인지 알기위해 공부를 해봤다.
 
-
-
 # 실행 컨텍스트와 스택 (Execution Context and Stack)
 
 이 문제를 이해하기 위해서는 자바 스크립트의 다음 개념들을 이해할 필요가 있다.
@@ -51,14 +56,10 @@ for (let i = 0, prefix; i < prefixes.length; i++) {
 
 여기 정리한 내용은 [이 글](http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/)을 보고 이해한 것을 내 나름대로 이해해 정리한 것이다. 따라서 여기에 서술된 내용은 정확한 사실이라기보다는 "이 글을 보고 내가 이해한 것에 따르면," 이라는 단서가 붙여진 것으로 이해하는 것이 적절할 것이다.
 
-
-
 ## 스코프
 
 global execution context는 하나만 존재한다.
-
 어떤 함수를 선언할 때마다 하나의 execution context가 만들어진다.
-
 각각의 execution context는 "개념적"으로 다음과 같은 객체로 나타낼 수 있다.
 
 ```javascript
@@ -69,19 +70,17 @@ executionContextObj = {
 }
 ```
 
+## 실행 컨텍스트 스택(Execution Context Stack)
 
+자바스크립트 인터프리터는 기본적으로 싱글 스레드(single thread) 방식이다. 그러니까 한번에 하나의 실행 컨텍스트를 처리할 수 밖에 없다. 이때 실행 컨텍스트를 올려두는 queue를 실행 컨텍스트 스택 이라 한다.
 
-## Execution Context Stack
+실행 컨텍스트를 스택에서 처리할 때는 두가지 단계를 거친다.
 
-자바스크립트 인터프리터는 기본적으로 싱글 스레드(single thread) 방식이다. 그러니까 한번에 하나의 Execution context를 처리할 수 밖에 없다. 이때 execution context를 올려두는 queue를 execution context stack 이라 한다.
-
-execution context를 stack에서 처리할 때는 두가지 단계를 거친다.
-
-1. Creation Stage (함수가 어딘가에서 불려지고, 아직 그 안의 어떤 코드도 실행되기 전)
+1. 생성 단계(Creation Stage): 함수가 어딘가에서 불려지고, 아직 그 안의 어떤 코드도 실행되기 전
    1. Scope chain 생성
    2. 함수, argument, 변수 생성
    3. "this" 값 결정
-2. Activation / Code Execution Stage
+2. 활성화 / 코드 실행 단계(Activation / Code Execution Stage)
    1. 값/레퍼런스 할당
    2. 코드 해석 및 실행
 
@@ -101,8 +100,6 @@ execution context를 stack에서 처리할 때는 두가지 단계를 거친다.
    5. `this` 값을 context 안에서 결정한다.
 4. 활성화 / 코드 실행 단계(Activation / Code Execution Stage)
    1. context 안의 함수를 실행 / 해석하고 코드를 한줄한줄 실행하면서 변수 값을 할당한다.
-
-
 
 ### 예: 각 단계 이후의 execution context object
 
@@ -158,8 +155,6 @@ fooExecutionContext = {
 }
 ```
 
-
-
 # Scope
 
 이 부분의 내용은 위의 내용을 가져온 블로그의 [다음 포스트 내용](http://davidshariff.com/blog/javascript-scope-chain-and-closures/)을 내가 이해한 대로 정리한 것이다. 역시 주의하면서 읽는 것이 좋다. 중간 중간 [mdn에서 본 글](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)에 나온 예제를 놓고, 블로그에서 배운대로 분석해놓은 내용도 함께 있으니 참고하시길 바란다.
@@ -186,15 +181,11 @@ function one() {
 one();
 ```
 
-
-
 이 예에서 `three()`의 스코프 체인은 다음과 같이 쓸 수 있다.
 
 ```
 three() Scope Chain = [ [three() VO] + [two() VO] + [one() VO] + [Global VO] ];
 ```
-
-
 
 ## Lexical scope
 
@@ -225,8 +216,6 @@ myAlerts[4](); // 5
 함수 `inner()` 는 for문 때문에 헷갈릴 수도 있지만, global context에 만들어져 있다. 따라서 이 함수의 스코프 사슬(scope chain)은 global context에 정적으로 묶여있다.
 
 따라서 11번째 줄부터 `inner` 함수를 실행시킬 때, function execution context를 만들고, 생성 단계에서 `i` 를 찾게 되는데,  `i` 값은 global context에서 이미 `5` 로 바뀌어 있는 상황이기 때문에 이런 결과가 생긴 것이다.
-
-
 
 # [Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
 
@@ -337,14 +326,14 @@ for (let i = 0, prefix; i < prefixes.length; i++) {
 
 이제 이 함수를 invoke하게 되면, 인터프리터는 `prefix`와 `length`를 찾기 시작한다. 스코프체인을 찾다보니, `prefix`와 `length`에 각각의 끝값이 할당되어 있다. 이를 인터프리터가 처리하고 나면, 의도한 것과는 다르게 모두 같은 카드 번호 값(`cardnum`)에 대해서 테스트한 꼴이 되는 것이다.
 
-## 해법: IIFE 사용
+## 해법 1: IIFE 사용
 
 해법은 함수가 정의되는 순간 invoke하는 IIFE를 사용하는 것이다. 이러면 클로저에 포함된 두 인자가 값을 바꾸기 전에 함수를 실행할 수 있어, 의도한 대로 모든 경우의 수에 대해 테스트를 진행할 수 있게 된다.
 
 ```javascript
-for (let i = 0, prefix; i < prefixes.length; i++) {
+for (var i = 0, prefix; i < prefixes.length; i++) {
   prefix = prefixes[i];
-  for (let length = 16; length <= 19; length++) {
+  for (var length = 16; length <= 19; length++) {
     (function(prefix, length) {
       it('has a prefix of ' + prefix + ' and a length of ' + length,
         function() {
@@ -355,3 +344,17 @@ for (let i = 0, prefix; i < prefixes.length; i++) {
 }
 ```
 
+## 해법 2: `let` 키워드 사용
+
+`let` 키워드는 블록 단위의 스코프를 만들어 낸다. 따라서 각 함수를 실행할 때 참조하게 되는 스코프가 독립적으로 존재해 각각의 i, prefix, length 
+
+```javascript
+for (let i = 0; i < prefixes.length; i++) {
+  let prefix = prefixes[i];
+  for (let length = 16; length <= 19; length++) {
+    it('has a prefix of ' + prefix + ' and a length of ' + length, function() {
+        detectNetwork(cardnum(prefix, length)).should.equal('China UnionPay');
+    }); 
+  }
+}
+```

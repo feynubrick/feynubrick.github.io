@@ -4,7 +4,7 @@ comments: true
 title: 자바스크립트 // 참고. 실행 컨텍스트와 스코프 [번역]
 author: feynubrick
 date:   2018-12-24
-tags: [JavaScript]
+tags: [JavaScript, Study, Translation]
 ---
 
 자바스크립트를 배우다 만나게 되는 첫번째 난관. 스코프와 실행 컨텍스트라는 개념이다.
