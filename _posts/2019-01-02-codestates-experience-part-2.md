@@ -98,7 +98,7 @@ twittler는 HTML/CSS와 DOM을 사용해 간단한 웹 응용프로그램을 만
 
 <figure>
   <img src="http://t1.daumcdn.net/liveboard/mykcatchup/0ec1d99738d04bfba00e05473108cb3a.JPG" alt="bonobono_ppt"/>
-  <figcaption>전설의 보노보노 ppt. 맹세하는데 이 정도는 아니었다. (출처: 카카오1분)</figcaption>
+  <figcaption>전설의 보노보노 ppt. 맹세하는데 내 형편없는 디자인은 이 정도는 아니었다. (출처: 카카오1분)</figcaption>
 </figure>
 
 recursion의 경우 재귀함수를 연습하는 기회가 되는데, JSON의 stringify와 DOM의 getElementsByClass 함수를 직접 구현해보는 것이 주 과제이다. 나머지 하나는 JSON.parse 를 구현하는 것인데, 글을 쓰는 현재도 풀고 있을 만큼 난이도가 있다.
