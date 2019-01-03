@@ -30,8 +30,10 @@ markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
-disqus_shortname: feynubrick
+disqus:
+  shortname: feynubrick
 
 # paginate: 5
 

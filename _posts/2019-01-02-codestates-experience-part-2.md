@@ -29,7 +29,7 @@ tags: [CodeStates]
 
 # 솔로 위크
 
-<figure class="center">
+<figure>
   <img src="http://cfs15.tistory.com/image/13/tistory/2009/02/26/23/15/49a6a3f0e5ff9" alt="solo"/>
   <figcaption>이 솔로가 아니다... (출처: <a href="https://lalawin.com/entry/solo-better-than-couple">lalawin.com</a>)</figcaption>
 </figure>
@@ -96,7 +96,7 @@ twittler는 HTML/CSS와 DOM을 사용해 간단한 웹 응용프로그램을 만
 프론트엔드 작업흐름(workflow)과 HTML/CSS, DOM, 자바스크립트 모두를 사용해야하는 종합선물세트같은 과제라 내가 배운 것들이 대체 어디 쓰이는 것인지 알 수 있어 좋았다.
 오프세션 해커톤에서 활용할 수 있는 것들이라 더욱더 활용도가 높은 과제였다.
 
-<figure class="center">
+<figure>
   <img src="http://t1.daumcdn.net/liveboard/mykcatchup/0ec1d99738d04bfba00e05473108cb3a.JPG" alt="bonobono_ppt"/>
   <figcaption>전설의 보노보노 ppt. 맹세하는데 이 정도는 아니었다. (출처: 카카오1분)</figcaption>
 </figure>

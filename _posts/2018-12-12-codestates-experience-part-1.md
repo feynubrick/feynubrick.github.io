@@ -20,14 +20,14 @@ tags: [CodeStates]
 
 # 코드 스테이츠?
 
-<figure class="center">
+<figure>
   <img src="https://i.imgur.com/kgQCD7x.jpg" alt="bootcamp_marine"/>
   <figcaption>부트캠프의 흔한 모습.... 물론 이런 부트캠프를 말하는 것은 <strong>아니다</strong></figcaption>
 </figure>
 
 이전부터 이쪽 분야와 기술에 관심이 많았기 때문에 Medium 같은 매체에 올라오는 관련 글을 챙겨보곤 했다. 자주 봤던 글은 부트캠프(Boot camp)라는 것에 대한 글이었다. 실리콘벨리나 유럽 같은 곳에 이런 것들이 주로 있었는데, 웹 개발자로 전환하려는 사람들을 모아서 단기간에 스파르타식으로, 현장에서 필요한 수준의 기술을 익힌 사람들을 배출해내는 곳이었다. 이곳에 오는 사람들은 정말 매우 다양한 사람들이어서 컴퓨터 공학 관련 전공자는 10퍼센트 미만이라는 이야기도 들었다. 그만둘 생각을 하고 대안을 찾던 나에게는 이곳만큼 이상적인 곳이 없었다. 문제는 이런 곳들은 비용도 만만치 않고, 해외에 있다는 사실이었다. 비용은 어떻게 하지, 해외 체류는 또 어떤 돈으로 해야하지라는 고민에 빠져있다가, 한국에도 이런 부트캠프가 있다는 것을 알게됐다. 그곳이 바로 코드 스테이츠였다. 커리큘럼을 보니, 내가 봤었던 부트캠프의 모습이었다. 
 
-<figure class="center">
+<figure>
   <img src="https://codestates.com/images/logo_sub_b_simple.png" alt="codestates" width="30%"/>
 </figure>
 
