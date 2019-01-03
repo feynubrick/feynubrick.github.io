@@ -49,35 +49,3 @@ $on-laptop:        800px !default;
   "minima/layout",
   "minima/syntax-highlighting"
 ;
-
-.post-tag {
-  display: inline-block;
-  background: $grey-color-light;
-  padding: 0 0.5rem;
-  margin-right: 0.5rem;
-  border-radius: 4px;
-  color: $text-color;
-  font-size: 90%;
-  &:before {
-    content: "\f02b";
-    font-family: FontAwesome;
-    padding-right: 0.5em;
-  }
-  &:hover {
-    text-decoration: none;
-    background: $grey-color;
-    color: $background-color;
-  }
-}
-
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-figcaption {
-  text-align: center;
-  margin-top: 10px;
-  color: grey;
-}
