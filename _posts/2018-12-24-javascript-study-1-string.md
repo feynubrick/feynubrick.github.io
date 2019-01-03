@@ -44,8 +44,8 @@ tags: [JavaScript, Study]
 # 문자열
 
 자바스크립트 변수의 한 종류다. 자바스크립트 변수는 다음의 두가지 유형(타입)으로 구분할 수 있다.
-- 원시타입(primitive type)
-- 참조타입(reference type)
+- 원시타입(primitive type): `null`, `undefined`, number, string, boolean
+- 참조타입(reference type): 객체(object)
 
 이 두 유형은 이 변수의 식별자(identifier)가 가리키는 메모리 주소에 담긴 정보가 무엇인지에 따라 구분된다.
 원시타입의 경우에는 어떤 값(숫자, 글자 같은)이, 참조타입의 경우에는 메모리 주소가 담기게 된다.

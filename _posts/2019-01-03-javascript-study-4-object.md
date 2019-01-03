@@ -50,9 +50,13 @@ var meglomaniac = {
 };
 ```
 
-`battleCry` 라는 키 이름을 가진 속성의 값은 함수다. 여기에는 함수의 메모리상의 위치가 들어가게 된다. 이게 동적인 것이라 메모리에 올린다는 게 헷갈릴 수 있지만, javascript는 동적인 스크립트를 처리하는 언어이므로, 처리하는 일을 하는 엔진이 이 스크립트를 그대로 실행(eval 처럼)해서 결과를 주는 것이라고 이해하는 것이 적절할 것 같다.
+`battleCry` 라는 키 이름을 가진 속성의 값은 함수다.
+여기에는 함수의 메모리상의 위치가 들어가게 된다.
+이렇게 객체의 속성에 함수를 할당하면, 이 함수를 메서드처럼 활용할 수 있다.
 
-여기서 하나 공부해 볼 점은 다음 부분이다.
+`this`는 나중에 설명하기 때문에 일단 여기서는 객체 자신을 가리키는 것으로 생각하면 된다.
+
+이에 더해 하나 공부해 볼 부분은 다음 부분이다.
 
 ```javascript
 Array(noOfBrains + 1).join(" " + this.mastermind);
@@ -60,7 +64,7 @@ Array(noOfBrains + 1).join(" " + this.mastermind);
 
 `" " + this.mastermind` 가 여러번 반복되는 코드를 짜고 싶을 때, for문을 직접 써서 하는 방법이 있지만, 이렇게 Array의 `join()` 메서드를 사용하면, 코드 길이를 줄일 수 있다.
 
-# `in` 연산자
+# `in` 키워드(keyword)
 
 ```javascript
 var meglomaniac = {
@@ -104,7 +108,7 @@ expect(currentYear).toBe(2018);
 expect(meglomaniac.calculateAge()).toBe(48);
 ```
 
-# Object prototype
+# 객체 프로토타입(Object prototype)
 
 객체 생성자(object constructor)를 사용해서 만든 객체에 속성을 추가할 수 없다.
 이 내용을 이해하려면 먼저 객체 생성자에 대해서 알아야 한다.
@@ -157,7 +161,7 @@ function Person(first, last, age, eyecolor) {
 }
 ```
 
-## [Object prototype](https://www.w3schools.com/js/js_object_prototypes.asp)
+## 객체 프로토타입([Object prototype](https://www.w3schools.com/js/js_object_prototypes.asp))
 자바스크립트에서 생성되는 모든 객체는 prototype이라는 속성(`__proto__`)을 갖고 있는데, 여기에는 해당 객체의 prototype에 해당하는 객체의 참조 주소가 있다. 자바스크립트에서는 모든 것이 객체라고 볼 수 있다. 모든 객체의 prototype 참조를 따라가면 결국 Object.prototype 라는 객체에 도달하기 때문이다. 
 
 그런데 이 프로토타입은 왜 존재하는 것일까? 예를 들어 배열을 하나 선언하면, 메모리 공간에 배열 객체 하나가 생기고, 이 배열은 Array 객체의 메서드를 모두 사용할 수 있다. 만약 이 모든 것이, 프로토타입이라는 방식으로 '참조'되지 않고 그대로 복사되는 형식으로 되어 있었다면, 객체를 하나 만들 때마다 모든 내용을 함께 복사해야하기 때문에 많은 자원이 소모된다.
@@ -198,9 +202,16 @@ Circle.prototype.describe = function() {
 };
 ```
 
-# Mutability
+# 객체 속성의 성격: Mutability
 
-## public and mutable
+객체의 속성(property)이 외부에서 어떤 경우에 접근 가능한지 알아보자.
+C++ 같은 객체지향 언어에서는 private, public 같은 것으로 변수의 외부로부터의 접근을 각각 막거나, 허용할 수 있다.
+자바스크립트에서도 이와 같은 개념이 존재하는데, 이를 적절히 활용하면 객체지향언어와 같이 객체를 다룰 수 있다.
+
+- public: 외부의 접근을 허용한다. 즉, 외부에서 맘대로 값을 바꿀 수 있다.
+- private: 외부에서 접근 불가하다. 즉, 외부에서 참조자체가 안되기 때문에 값을 바꿀 수 없다.
+
+## public
 
 - 객체의 속성은 public이고 mutable하다.
 
