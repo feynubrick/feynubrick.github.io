@@ -266,7 +266,7 @@ console.log(numbers.every( (element, index, array) => element % 2 === 1)); // fa
 - \[**immutable**\]
 - 행렬의 단 한 항목이라도 테스트를 통과했는지 아닌지 확인한다.
 - `true` 혹은 `false`를 반환한다.
-- 
+ 
 ```javascript
 function isEven(element, index, array) {
     return element % 2 === 0;
