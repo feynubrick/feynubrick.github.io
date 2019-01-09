@@ -9,7 +9,7 @@ tags: [JavaScript, Study]
 
 # 들어가면서
 
-과제를 하다가 함수 정의를 for문 안에 했을 때 이상한 현상이 생겼다. 우선 다음 코드를 보자.
+과제를 하다가 for문 안에 함수 정의를 했을 때 이상한 현상이 생겼다. 우선 다음 코드를 보자.
 
 ```javascript
 for (var i = 0; i < prefixes.length; i++) {
@@ -24,27 +24,20 @@ for (var i = 0; i < prefixes.length; i++) {
 }
 ```
 
-`detectNetwork()`라는 함수의 결과를 테스트하는 코드다. 그래서 `prefix`와 `length`의 모든 경우에 대해 테스트를 하려고 for loop을 돌렸는데, 테스트가 모든 경우의 수를 다루지 않았다는 메시지를 받았다.
+이 코드는 `detectNetwork()`라는 함수를 만들고, 이 함수의 결과를 테스트하기 위해 작성한 것이다.
+it 함수는 mocha라는 자바스크립트 테스트 프레임워크에서, 테스트 항목을 등록하는 역할을 한다.
+이 함수 안에 정의된 함수는 그 앞의 문자열과 연결되고, 나중에 비동기적으로 실행된다.
+참고로 이 안에 사용된 `cardnum()` 함수는 인자 두개를 이용해 테스트용 카드번호를 문자열로 만들고 반환하는 함수다.
 
-다음 코드처럼 IIFE라는 것을 이용해야만 이 이상한 문제를 해결할 수 있다고 한다.
+내가 이 코드를 작성하며 의도한 것은 `prefixes`라는 배열에 담긴 값들과 `length`의 정해진 범위에서 만들어지는 모든 카드번호를 자동으로 테스트하는 것이다.
 
-```javascript
-for (var i = 0,; i < prefixes.length; i++) {
-  var prefix = prefixes[i];
-  for (var length = 16; length <= 19; length++) {
-    (function(prefix, length) {
-      it('has a prefix of ' + prefix + ' and a length of ' + length,
-        function() {
-          detectNetwork(cardnum(prefix, length)).should.equal('China UnionPay');
-        });
-    })(prefix, length);
-  };
-}
-```
+그러나 결과는 내 생각과는 달랐다.
+테스트가 모든 경우의 수를 다루지 않았다는 것이다!
 
-도대체 어떤 문제가 있으며, 왜 이렇게 이상하게 행동하는지, 또 IIFE라는 것은 뭐길래 이 문제를 해결하는지 알아보도록 하자.
+위의 코드를 그냥 보면 모든 조합을 테스트로 등록한 것 같았는데, 무엇이 문제였으며 어떻게 내가 의도한 대로 만들 수 있을까?
 
-# 실행 컨텍스트와 스택 (Execution Context and Stack)
+# 자바스크립트 인터프리터의 작동 방식
+- [참고](http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/)
 
 이 문제를 이해하기 위해서는 자바 스크립트의 다음 개념들을 이해할 필요가 있다.
 
@@ -53,12 +46,11 @@ for (var i = 0,; i < prefixes.length; i++) {
 - 클로저(closure)
 - IIFE(Immediately-invoked function expression)
 
-이 모든 것을 이해하기 전에, 자바스크립트의 인터프리터(interpreter)가 어떤 방식으로 작동하는지 먼저 알 필요가 있다.
-
-여기 정리한 내용은 [이 글](http://davidshariff.com/blog/what-is-the-execution-context-in-javascript/)을 보고 이해한 것을 내 나름대로 이해해 정리한 것이다. 따라서 여기에 서술된 내용은 정확한 사실이라기보다는 "이 글을 보고 내가 이해한 것에 따르면," 이라는 단서가 붙여진 것으로 이해하는 것이 적절할 것이다.
+이 모든 것을 이해하기 전에, 자바스크립트의 인터프리터(interpreter)가 어떤 방식으로 작동하는지 먼저 알아보자.
 
 ## 실행 컨텍스트(Execution context)
 
+자바스크립트
 코드가 자바스크립트에서 실행될 때 이게 실행되는 환경이 매우 중요하며, 다음 중 하나로 계산된다.
 
 - 글로벌 코드(Global code): 코드가 처음으로 실행되는 기본 환경을 말한다.
@@ -164,8 +156,6 @@ fooExecutionContext = {
 ```
 
 # Scope
-
-이 부분의 내용은 위의 내용을 가져온 블로그의 [다음 포스트 내용](http://davidshariff.com/blog/javascript-scope-chain-and-closures/)을 내가 이해한 대로 정리한 것이다. 역시 주의하면서 읽는 것이 좋다. 중간 중간 [mdn에서 본 글](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)에 나온 예제를 놓고, 블로그에서 배운대로 분석해놓은 내용도 함께 있으니 참고하시길 바란다.
 
 Scope는 `variable object(VO)` 와 모든 부모 context의 VOs 를 포함한다.
 
@@ -360,7 +350,6 @@ ES6에서 추가된 `let` 키워드는 블록 수준의 스코프를 만든다.
 그러니까 it의 클로저가 반복될 때마다 `i`, `prefix`, `length`의 다르게 만들어진다는 것을 의미한다.
 따라서 위에서 IIFE로 해결했던 것과 마찬가지로 모든 경우의 수에 대해 테스트를 만들 수 있게 된다.
 
-- 참고: [Mozilla Hacks](https://hacks.mozilla.org/2015/07/es6-in-depth-let-and-const/)
 
 ```javascript
 for (let i = 0; i < prefixes.length; i++) {
@@ -372,3 +361,9 @@ for (let i = 0; i < prefixes.length; i++) {
   }
 }
 ```
+
+# 참고한 내용
+
+
+- [스코프 체인과 클로저](http://davidshariff.com/blog/javascript-scope-chain-and-closures/)
+- [let 키워드](https://hacks.mozilla.org/2015/07/es6-in-depth-let-and-const/)
