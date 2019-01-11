@@ -7,17 +7,9 @@ date:   2019-01-03
 tags: [JavaScript, Study]
 ---
 
-# Execution context 가 생성될 때 만들어지는 것들
-
-- 어떤 함수가 호출되면, 실행 컨텍스트가 만들어진다.
-  - 만들어진 컨텍스트는 call stack에 push 된다.
-  - 함수를 벗어나면, call stack에서 pop 된다.
-- 이 실행 컨텍스트는 스코프 별로 생성된다.
-- 이 실행 컨텍스트에는 다음의 것들이 담긴다.
-  - scope 내 변수 및 함수 (local, global)
-  - 전달 인자 (`arguments`)
-  - 실행 컨텍스틑를 호출한 것 (caller)
-  - `this`
+# `this` 키워드
+ - 모든 함수 스코프 내에서 자동으로 설정되는 특수한 식별자
+ - 실행컨텍스트(execution context)의 생성단계에서 결정된다.
 
 # `this` 를 binding하는 5가지 패턴
 
