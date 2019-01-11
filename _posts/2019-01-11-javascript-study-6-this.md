@@ -3,7 +3,7 @@ layout: post
 title: "자바스크립트 공부 // 6. this"
 comments: true
 author: feynubrick
-date:   2019-01-03
+date:   2019-01-11
 tags: [JavaScript, Study]
 ---
 

@@ -133,8 +133,8 @@ let foo = function (a) {
 
 어휘 환경은 다음의 두가지 요소로 이루어져 있습니다.
 
-1. 환경 기록(environment record)
-2. 바깥 환경 참조(reference to the outer environment)
+- 환경 기록(environment record)
+- 바깥 환경 참조(reference to the outer environment)
 
 환경 기록은 변수와 함수 선언이 저장되는 곳이고, 바깥 환경 참조는 이 어휘 환경을 둘러싼 다른 어휘 환경을 가리킵니다.
 환경 기록을 사용해서 못하면 바깥 환경 참조를 반복해가면서 식별자 해소를 수행하게 됩니다.
@@ -150,24 +150,24 @@ let foo = function (a) {
 스코프는 변수 접근 규칙에 따른 식별자의 유효범위를 지칭하는 용어입니다.
 자바스크립트에서는 함수가 선언되는 동시에 자신만의 스코프를 가진다.
 
-## 지역 스코프와 전역 스코프(local scope and global scope)
+### 지역 스코프와 전역 스코프(local scope and global scope)
 - 스코프는 중첩이 가능: 스코프가 하위 구조를 가질 수 있다 => 스코프 체인
 - 하위 스코프는 상위 스코프의 변수에 접근할 수 있다.
 - 지역변수는 함수 내에서 전역변수보다 높은 우선순위를 갖는다.
 
-## 블록 수준의 스코프(block level scope)와 함수 수준의 스코프(function level scope)
+### 블록 수준의 스코프(block level scope)와 함수 수준의 스코프(function level scope)
 - 자바스크립트는 함수 수준의 스코프 규칙을 따른다.
 - 예외: `let`, `const` 키워드(ES6)
   - block level scope
 
-## 전역변수, window 객체
+### 전역변수, window 객체
 - 함수의 외부에서 선언된 모든 변수는 전역 범위
 - 전역 범위를 대표하는 객체: window(브라우저에서)
 
-## 선언 없이 초기화된 변수는 전역변수
+### 선언 없이 초기화된 변수는 전역변수
 - 선언 없이 변수를 초기화해도 에러는 나지 않지만, 전역 변수로 선언되기 때문에 뜻하지 않은 문제를 만들 수 있다.
 
-## Hoisting
+### Hoisting
 - 변수 선언은 범위에 따라 선언과 할당으로 분리된다.
 - 자바스크립트 엔진이 내부적으로 변수 선언을 scope의 상단으로 끌어올린다(hoist).
 - 함수의 경우
