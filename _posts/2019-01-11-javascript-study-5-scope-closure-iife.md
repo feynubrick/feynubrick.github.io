@@ -241,7 +241,7 @@ for (var i = 0; i < prefixes.length; i++) {
 이제 어떤 문제가 생겼던 것인지 감이 올 것입니다.
 `it` 함수에 등록된 함수가 정의될 때, 식별자 `prefix`, `length`를 통해 참조하고 있는 어휘 환경은 `i`, `prefix`, `length`가 선언된 어휘 환경입니다.
 
-그런데 나중에 이 함수를 실행하는 시점에서 보면 이 어휘 환경의 `i`, `prefix`, `length` 값은 각각 `prefixes.length - 1`, `prefixes[prefixes.length - 1]`, `19`가 되어 있습니다.
+그런데 나중에 이 함수를 실행하는 시점에서 보면 이 어휘 환경의 `i`, `prefix`, `length` 값은 각각 `prefixes.length`, `prefixes[prefixes.length]`, `20`가 되어 있습니다.
 
 따라서 for loop을 돈 횟수만큼 정의된 함수들이 모두 이 끝 값들로 테스트를 진행한 것이죠.
 이래서 문제가 생긴 것이었습니다.
