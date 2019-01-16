@@ -7,11 +7,11 @@ date:   2019-01-11
 tags: [JavaScript, Study]
 ---
 
-# `this` 키워드
+# this 키워드
  - 모든 함수 스코프 내에서 자동으로 설정되는 특수한 식별자
  - 실행컨텍스트(execution context)의 생성단계에서 결정된다.
 
-# `this` 를 binding하는 5가지 패턴
+# this 를 binding하는 5가지 패턴
 
 - global reference
 - function invocation
@@ -104,7 +104,7 @@ console.log(f.val); // WooHoo!
 console.log(val); // ReferenceError
 ```
 
-## 패턴 5: `.call()` or `.apply()` invocation
+## 패턴 5: .call() or .apply() invocation
 
 - 각 함수의 첫 argument인 객체에 `this` 바인딩
 - 수동으로 `this` 바인딩을 서술하기 위해 사용 
@@ -143,7 +143,7 @@ add.call(obj, 2, 8);
 console.log(obj.val); // 10
 ```
 
-# `call` 과 `apply`
+# call 과 apply
 
 `call`과 `apply`는 모두 함수의 프로토타입 메서드(function prototype method)다. 
 각각의 용법은 다음과 같다.
@@ -172,12 +172,12 @@ obj.foo.call(obj2); // Q2
 - Q1: `"origin"`
 - Q2: `"what?"`
 
-## `call` in action
+## call in action
 
 뭔지는 알겠지만 왜 사용하는지는 모르겠다고?
 다음 예를 한번 보자.
 
-### `arguments`를 배열의 프로토타입 메서드를 사용해 처리
+### arguments를 배열의 프로토타입 메서드를 사용해 처리
 
 `arguments`는 함수의 인자를 담고있는 특별한 객체다.
 이 객체는 배열은 아니지만 배열처럼 index와 `length` 값을 갖고 있어서,
@@ -232,7 +232,7 @@ fun.print(); // Q2
 - Q1 => Food: feta	5 USD
 - Q2 => Toy: robot	40 USD
 
-# `bind`
+# bind
 인자로 넘겨준 객체와 연결된 새로운 함수를 반환한다.
 콜백함수(callback function)을 특정 객체와 연결하고 싶을 때 사용한다.
 
@@ -297,9 +297,9 @@ var b = new Box(100, 50);
 
 실행시키면 문제없이 1초후에 결과(`5000`)가 계산돼서 나온다.
 
-## currying using `bind`
+## currying using bind
 
-"currying"은 [Haskell Brooks Curry](https://en.wikipedia.org/wiki/Haskell_Curry)의 라는 사름의 이름에서 유래했으며, 
+"currying"은 [Haskell Brooks Curry](https://en.wikipedia.org/wiki/Haskell_Curry)의 라는 사람의 이름에서 유래했으며, 
 함수를 각각이 하나의 인자를 가져가는 여러 함수로 쪼개는 과정을 말한다.
 
 예를 들어,
@@ -372,6 +372,7 @@ setTimeout(red.method.bind(red), 1000); // Q9
 
 Q8에서 purple은 red, green, blue, yellow 가 아닌 다른 객체를 말한다.
 
-# 참조 문서
+# 참조
+
 - 코드스테이츠의 프리코스 강의
 - [currying](https://hackernoon.com/currying-in-js-d9ddc64f162e)
