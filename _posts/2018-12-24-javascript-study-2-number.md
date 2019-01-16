@@ -7,14 +7,14 @@ date:   2018-12-24
 tags: [JavaScript, Study]
 ---
 
-# 수(Number)
+## 수(Number)
 
 자바스크립트에서 수는 문자열(string)과 마찬가지로 원시타입에 속하는 변수다.
 자바스크립트도 프로그래밍 언어이므로 숫자를 잘 다룰 수 있어야 원하는 알고리듬(algorithm)을 구현할 수 있을 것이다.
 
 아래에 정리된 내용은 수 변수에서 사용할 수 있는 메서드들에 관한 것이다.
 
-## [isInteger()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger)
+### [isInteger()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger)
 
 - 전달된 값이 정수인지 아닌지 판별한다.
 
@@ -25,7 +25,7 @@ console.log(Number.isInteger('10')); // false
 console.log(Number.isInteger([1]));
 ```
 
-## [parseInt()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
+### [parseInt()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
 
 - 정수로 형변환(type casting)
 - 진법 변환에도 사용할 수 있다. 예를 들어, 16진수를 10진수를 바꿀 수 있다.
@@ -43,7 +43,7 @@ parseInt(0.00000000000434, 10); // 4 -> wrong results for very big/small numbers
 parseInt(4.7 * 1e22, 10); // 4
 ```
 
-## [parseFloat()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat)
+### [parseFloat()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat)
 
 - 부동소수점수(float)로 형변환.
 
@@ -52,7 +52,7 @@ parseFloat(15.12345); // 15.12345
 parseFloat('ABC'); // NaN
 ```
 
-## [toFixed()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed)
+### [toFixed()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed)
 
 - 원하는 소수점 아래 위치까지 수를 표현할 때 사용한다.
 
@@ -63,13 +63,13 @@ parseFloat('ABC'); // NaN
 (-2.34).toFixed(1); // "-2.3" // 괄호를 사용해야 문자열로 반환한다.
 ```
 
-# Math
+## Math
 일종의 수학 라이브러리라고 생각할 수 있다.
 `Math`는 객체로서 `Math`에 포함된 메서드들을 사용해 수학과 관련된 계산을 수행할 수 있다.
 
 아래에 정리된 메서드들은 자주 쓰이는 메서드들을 추려서 정리한 것이다.
 
-## [min()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min)
+### [min()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min)
 
 - 주어진 값 중 최소값을 찾아 반환한다.
 
@@ -80,7 +80,7 @@ console.log(Math.min([1, 2, 3])); // NaN
 console.log(Math.min()); // Infinity
 ```
 
-## [max()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max)
+### [max()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max)
 
 - 주어진 값 중 최대값을 찾아 반환한다.
 
@@ -91,7 +91,7 @@ console.log(Math.max([1, 2, 3])); // NaN
 console.log(Math.max()); // -Infinity
 ```
 
-## [floor()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor)
+### [floor()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor)
 
 - 주어진 수보다 작거나 같은, 가장 큰 정수를 반환한다.
 - 즉, 버림이다.
@@ -101,7 +101,7 @@ console.log(Math.floor(0.9)); // 0
 console.log(Math.floor(1.1)); // 1
 ```
 
-## [round()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round)
+### [round()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round)
 
 - 주어진 수에 가장 근접한 정수를 반환한다.
 - 즉, 반올림이다.
@@ -111,7 +111,7 @@ console.log(Math.round(0.9)); // 1
 console.log(Math.round(1.1)); // 1
 ```
 
-## [random()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
+### [random()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
 
 - 0과 1 사이(0은 포함하고, 1은 포함하지 않음) 부동소수점(floating-point) 수를 반환한다.
 
@@ -123,7 +123,7 @@ function getRandomInt(max) {
 console.log(getRandomInt(3)); // 0, 1, 2 중 하나
 ```
 
-## [abs()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/abs)
+### [abs()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/abs)
 
 - 주어진 수의 절대값을 반환한다.
 
@@ -131,7 +131,7 @@ console.log(getRandomInt(3)); // 0, 1, 2 중 하나
 console.log(Math.abs(-1.2)); // 1.2
 ```
 
-## [sqrt()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/sqrt)
+### [sqrt()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/sqrt)
 
 - 주어진 수의 제곱근을 반환한다.
 
@@ -140,7 +140,7 @@ console.log(Math.sqrt(4)); // 2
 console.log(Math.sqrt(-4)); // NaN
 ```
 
-## [pow()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/pow)
+### [pow()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/pow)
 
 - 제곱수를 구한다.
 - `base`의 `exponent` 제곱을 반환한다.
