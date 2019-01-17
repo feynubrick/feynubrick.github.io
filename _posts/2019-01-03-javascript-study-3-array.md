@@ -7,7 +7,7 @@ date:   2019-01-03
 tags: [JavaScript, Study]
 ---
 
-## 들어가면서
+# 들어가면서
 
 여러 개의 변수를 배열이라는 변수 하나로 for loop을 통해 제어할 수 있기 때문에, 배열은 프로그래밍에서 정말 자주 쓰이는 요소다.
 자바스크립트에서는 이 배열을 유용하게 사용할 수 있도록 미리 여러 함수들을 만들어 놓았다.
@@ -18,16 +18,16 @@ tags: [JavaScript, Study]
 그래서 메서드와 속성을 갖고 있다.
 아래에서는 배열을 다룰 때 알아야할 속성과 자주쓰이는 메서드들을 소개할 것이다.
 
-### 일러두기: immutable과 mutable
+## 일러두기: immutable과 mutable
 
 아래의 내용을 보다보면 \[**immutable**\]과 \[**mutable**\]로 표시된 것을 발견할 수 있는데 각각의 의미는 다음과 같다.
 
 - \[**immutable**\]: 메서드 사용 후 원래 배열이 변하지 않음.
 - \[**mutable**\]: 메서드 사용 후 원래 배열이 변함.
 
-## 속성(Property)
+# 속성(Property)
 
-### [length](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length)
+## [length](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length)
 
 - `Array` 에 들어있는 항목들의 수를 반환한다.
 
@@ -45,9 +45,9 @@ numbers.length = 3;
 console.log(numbers); // [1, 2, 3]
 ```
 
-## 메서드(Method)
+# 메서드(Method)
 
-### [isArray()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray)
+## [isArray()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray)
 
 - \[**immutable**\]
 - `typeof`를 이용하면 객체라고 나오기 때문에, 어떤 변수가 배열인지 아닌지 감별할 때 이 메서드를 사용한다.
@@ -58,7 +58,7 @@ Array.isArray(123); // false
 Array.isArray('123'); // false
 ```
 
-### [forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+## [forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
 - \[**immutable**\]
 - 제공된 함수를 각각의 배열 항목마다 실행한다. 
 
@@ -72,7 +72,7 @@ numbers.forEach(function(number, i, arr) {
 // "2, 3, 3"
 ```
 
-### [map()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+## [map()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
 
 - \[**immutable**\]
 - 배열의 모든 항목 각각을 주어진 함수에 넣고, 새로운 배열의 각 항목에 넣는다. 이렇게 만들어진 새로운 배열을 반환한다. 
@@ -92,7 +92,7 @@ console.log(doubles); // [2, 4, 6, 8]
 console.log(doubles2); // [2, 4, 6, 8]
 ```
 
-### [filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+## [filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
 
 - \[**immutable**\]
 - 함수의 형태로 주어진 테스트를 통과한 모든 항목들로만 이루어진 새로운 행렬을 반환. 
@@ -115,7 +115,7 @@ console.log(result); // [2, 4, 6, 8]
 console.log(result2); // [2, 4, 6, 8]
 ```
 
-### [push()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
+## [push()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
 
 - \[**mutable**\]
 - 행렬에 하나 또는 여러개의 항목을 추가하고, 추가되어 항목이 증가된 배열의 `length`를 반환. 
@@ -130,7 +130,7 @@ numbers.push(50);
 console.log(numbers); // [10, 20, 30, 40, 50]
 ```
 
-### [pop()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop)
+## [pop()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop)
 
 - \[**mutable**\]
 - 행렬의 마지막 항목을 제거하고, 제거된 항목을 반환한다. 
@@ -145,7 +145,7 @@ numbers.pop();
 console.log(numbers); // [1, 2, 3]
 ```
 
-### [slice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
+## [slice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
 
 - \[**immutable**\]
 - 배열은 건드리지 않고, 배열의 일부(`begin`부터 `end`(포함되지 않음) 까지)만 "복사해" 반환한다. \
@@ -160,7 +160,7 @@ console.log(numbers.slice(3, 1)); // []
 console.log(numbers); // [1, 2, 3, 4, 5]
 ```
 
-### [splice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
+## [splice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
 
 - \[**mutable**\]
 - 배열의 항목을 제거하거나 추가한다. 
@@ -174,7 +174,7 @@ numbers.splice(startIndex, numOfElementsToRemove, newElement);
 console.log(numbers); // [1, 2, 3, 4, 5]
 ```
 
-### [reduce()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
+## [reduce()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
 
 - \[**immutable**\]
 - `reducer` 함수를 배열의 각각의 항목에 대해 수행하고 하나의 값으로 반환한다. 
@@ -199,7 +199,7 @@ arr.reduce(callback, init);
 
 `reducer` 함수의 반환된 값은 accumulator에 할당되고, 모든 항목에 대해 이 reducer 함수를 적용한다.
 
-### [join()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
+## [join()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
 
 - \[**immutable**\]
 - 행렬의 모든 항목을 주어진 `seperator`를 사용해 연결해 문자열로 표현한다. `separator`의 기본 값은 `,` 다. 
@@ -211,7 +211,7 @@ console.log(numbers.join('')); // "1234"
 console.log(numbers.join('-')); // "1-2-3-4"
 ```
 
-### [indexOf()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf)
+## [indexOf()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf)
 - \[**immutable**\]
 - 배열에서 주어진 값을 찾아 가장 처음 발견하는 인덱스를 반환. 못찾을 경우 `-1`을 반환
 
@@ -222,12 +222,12 @@ console.log(numbers.indexOf(2, 4)); // 6 => 4번째 인덱스부터 찾음
 console.log(numbers.indexOf(1000)); // -1
 ```
 
-#### 참고하면 좋은 메서드
+### 참고하면 좋은 메서드
 - `includes()`: 구형 브라우저에서 안됨
 - `find()`: callback 함수를 직접 넣어 원하는 조건을 만족하는 첫번째 항목을 찾아낼 수 있다.
 - `findIndex()`: `find()`와 같은 역할을 하지만, 항목이 아닌 인덱스를 반환한다.
 
-### [concat()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat)
+## [concat()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat)
 
 - \[**immutable**\]
 - 두개 이상의 행렬을 합칠 때 사용한다.
@@ -243,7 +243,7 @@ var alphanumeric = alpha.concat(numbers1, numbers2);
 console.log(alphanumeric); // ["a", "b", "c", 1, 2, 3, 4, 5, 6, 7, 8]
 ```
 
-### [every()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every)
+## [every()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every)
 
 - \[**immutable**\]
 - 행렬의 모든 항목이, 주어진 함수로 만들어진 테스트를 통과했는지 아닌지 확인한다.
@@ -261,7 +261,7 @@ console.log(odds.every( element => element % 2 === 1)); // true
 console.log(numbers.every( (element, index, array) => element % 2 === 1)); // false
 ```
 
-### [some()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
+## [some()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
 
 - \[**immutable**\]
 - 행렬의 단 한 항목이라도 테스트를 통과했는지 아닌지 확인한다.
@@ -279,7 +279,7 @@ console.log(numbers.some( (element, index, array) => element % 2 === 0)); // tru
 console.log(odds.some( (element, index, array) => element % 2 === 0)); // false
 ```
 
-### [fill()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill)
+## [fill()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill)
 
 - \[**mutable**\]
 - 배열의 시작 인덱스부터 끝 인덱스까지 정적인 값으로 채운 새로운 행렬을 반환한다.
@@ -294,7 +294,7 @@ console.log(numbers.fill(fillWith, start)); // [1, 0, 0, 0, 0]
 console.log(numbers.fill(fillWith)); // [0, 0, 0, 0, 0]
 ```
 
-### [shift()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift)
+## [shift()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift)
 
 - \[**mutable**\]
 - 배열의 첫번째 항목을 제거하고, 이 제거된 항목을 반환한다.
@@ -306,7 +306,7 @@ console.log(numbers); // [2, 3, 4, 5]
 console.log(firstNumber); // 1
 ```
 
-### [unshift()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift)
+## [unshift()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift)
 
 - \[**mutable**\]
 - 하나 또는 그 이상의 항목들을 배열의 처음에 추가한다.
@@ -318,7 +318,7 @@ console.log(numbers.unshift(1, 2)); // 5
 console.log(numbers); // [1, 2, 3, 4, 5]
 ```
 
-### [reverse()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse)
+## [reverse()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse)
 
 - \[**mutable**\]
 - 배열을 역순으로 배열해 반환한다.
@@ -330,7 +330,7 @@ console.log('reversed: ', reversed); // [5, 4, 3, 2, 1]
 console.log('numbers: ', numbers); // [5, 4, 3, 2, 1]
 ```
 
-### [sort()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+## [sort()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
 
 - \[**mutable**\]
 - 배열의 항목들을 정렬하고, 그 행렬을 반환한다.

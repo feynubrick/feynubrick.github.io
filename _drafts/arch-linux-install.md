@@ -122,10 +122,20 @@ if there is no error, check th` connection by following:
 ## partitioning
 
 check the current status
+
+```
 # fdisk -l
+```
+
 to edit the partition,
+
+```
 # cfdisk /dev/nvme0n1
+```
+
 delete all partitions and make new partitions
+
+
 name
 mount point
 partition name

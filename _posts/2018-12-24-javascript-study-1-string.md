@@ -7,7 +7,7 @@ date:   2018-12-24
 tags: [JavaScript, Study]
 ---
 
-## "자바스크립트 공부" 시리즈를 시작하면서
+# "자바스크립트 공부" 시리즈를 시작하면서
 무언가를 배울 때 그 내용을 정리하는 것은 단순하지만 매우 효과적인 학습방법이다.
 배운 것을 적어내려가는 동안 무의식적으로 내용이 정리가 되어 기억하는 데 도움을 준다.
 나중에 그 정보를 잊은 경우에는, 나의 뇌 바깥의 어떤 곳에 적혀있는 정보를 보고 다시 기억을 떠올리거나 새로운 기억을 만들어 낼 수 있다.
@@ -33,7 +33,7 @@ tags: [JavaScript, Study]
 그러니 지금은 이 격언을 저 먼 곳의 별빛처럼 걸어두고 공부를 해 나가도록 하겠다.
 일단 적어두고 고치면 되는 것 아닌가.
 
-### 정리한 내용의 출처
+## 정리한 내용의 출처
 이 시리즈에 정리된 내용은 코드스테이츠와 MDN(Mozilla Developer Network Web Docs)에서 가져온 것을 나름대로 소화해본 것이다.
 나의 '소화기관'이 좋지 않기 때문에 대부분은 원형 그대로다.
 공부를 더 진행하면서 차차 더 정리를 하도록 할 것이다.
@@ -41,7 +41,7 @@ tags: [JavaScript, Study]
 
 코드스테이츠 프리코스 강의에서는 전체적인 얼개와 다뤄야 할 내용들의 목록과 그 내용의 일부를, MDN에서는 그 세부적인 내용을 가져오고 링크를 달아놨다.
 
-## 문자열
+# 문자열
 
 자바스크립트 변수의 한 종류다. 자바스크립트 변수는 다음의 두가지 유형(타입)으로 구분할 수 있다.
 - 원시타입(primitive type): `null`, `undefined`, number, string, boolean
@@ -60,12 +60,12 @@ tags: [JavaScript, Study]
 이중 코드스테이츠의 프리코스 강의에서는 다루는 내용의 얼개와 일부분의 내용을 가져왔고, 각 얼개의 세세한 부분은 MDN에서 발췌하고 링크를 달았다.
 가져온 모든 부분에 출처를 따로따로 표시하고 싶지만 그렇게 적기엔 너무 힘들기도하고, 이 글은 학술논문이 아니니 거기까지 하지 못하는(않는) 것을 양해해주시기를 부탁한다.
 
-### 기본 용법
+## 기본 용법
 
 여기서는 문자열을 어떻게 사용하는 것인지에 대해 공부한다.
 그러니까 어떤 특성을 갖는지에 대해 공부한다.
 
-#### 문자 하나에 접근, 그러나 읽기 전용
+### 문자 하나에 접근, 그러나 읽기 전용
 
 문자 하나에 `[ ]`와 index를 사용해 배열에서 항목을 접근하듯 할 수 있다. 그러나 문자열에서는, 각 항목이 읽기 전용이라 값을 바꿀 수는 없다.
 
@@ -76,7 +76,7 @@ str[0] = 'Z'; // str의 0번째 인덱스에 "Z" 대입 시도
 console.log(str); // "Star Wars", str은 읽기 전용이라 윗줄의 시도가 헛되이 끝났다.
 ```
 
-#### 문자열 이어붙이기
+### 문자열 이어붙이기
 
 문자열을 이어붙이려면, `+` 연산자나 `concat()` 메서드를 사용한다.
 
@@ -90,7 +90,7 @@ var str4 = str1.concat(str2, str3);
 console.log(str4); // 'The Godfather 2'
 ```
 
-#### 길이 속성
+### 길이 속성
 
 문자열의 길이를 알고 싶을 때 사용한다. 문자열에 포함된 모든 문자(공백문자 포함)의 갯수와도 같다.
 
@@ -99,7 +99,7 @@ var title = "The Hitchhiker's Guide to the Galaxy";
 console.log(title.length); // 36
 ```
 
-### 메서드(methods)
+## 메서드(methods)
 
 메서드는 객체지향 언어인 C++을 공부할 때 배웠었다.
 메서드는 어떤 객체(C++에서는 class에 의해 만들어진)의 속성(property)를 조작해 어떤 결과를 만들어내는 객체에 딸린 함수라고 이해하고 있다.
@@ -108,7 +108,7 @@ console.log(title.length); // 36
 따라서 문자열 변수도 역시 객체여서, 여기에 딸린 여러 메서드를 적용할 수 있다.
 여기서는 문자열을 조작할 수 있는 메서드들 중 자주쓰이고 유용한 메서드에 대해 공부해본다.
 
-#### [indexOf()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf)
+### [indexOf()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf)
 
 - 문자열에서 어떤 문자열(`searchValue`)의 시작 index를 찾을 때 사용한다.
 - 여러 개가 일치할 경우 처음 것의 index를 반환한다.
@@ -123,7 +123,7 @@ console.log(message.indexOf('Red')); // -1
 console.log(message.indexOf()); // -1
 ```
 
-#### [split()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split)
+### [split()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split)
 
 - String을 문자열 안의 어떤 글자를 기준으로 쪼개서 배열로 만든다.
 - 두번째 파라미터에 숫자를 넣어서 결과로 나오는 배열의 길이를 조절할 수 있다.
@@ -134,7 +134,7 @@ console.log(message.indexOf()); // -1
 'a,b,c,d,e,f,g'.split(',', 4); // ["a", "b", "c", "d"]
 ```
 
-#### [substring()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring)
+### [substring()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring)
 
 - 문자열의 일정 부분을 문자열로 꺼낼 때 사용한다. 범위는 index로 지정한다.
 - 끝 인덱스를 지정할 경우 지정한 index 바로 ***직전***까지의 문자를 의미한다는 것에 주의한다. 
@@ -145,7 +145,7 @@ console.log(message.indexOf()); // -1
 'Mozilla'.substring(2); // "zilla"
 ```
 
-#### [toLowerCase()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase) 
+### [toLowerCase()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase) 
 
 - 문자열을 소문자로 변환할 때 사용.
 
@@ -153,7 +153,7 @@ console.log(message.indexOf()); // -1
 'AbCd'.toLowerCase(); // "abcd"
 ```
 
-#### [toUpperCase()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase)
+### [toUpperCase()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase)
 - 문자열을 대문자로 변환할 때 사용.
 
 ```javascript
@@ -161,7 +161,7 @@ console.log(message.indexOf()); // -1
 ```
 
 
-#### [repeat()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat)
+### [repeat()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat)
 
 - 말 그대로 문자열을 반복해서 덧붙인다.
 
@@ -173,7 +173,7 @@ console.log('Chorus lyrics for "Happy": ' + chorus.repeat(27));
 // expected output: "Chorus lyrics for "Happy": Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. Because I'm happy. "
 ```
 
-#### [trim](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim)
+### [trim](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim)
 
 - 문자열의 양쪽 끝의 공백을 제거할 때 사용한다.
 - "공백"에 포함되는 문자
@@ -184,7 +184,7 @@ console.log('Chorus lyrics for "Happy": ' + chorus.repeat(27));
 '   Hello World!   '.trim(); // "Hello World!"
 ```
 
-#### [match](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match)
+### [match](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match)
 
 - 문자열에서 정규식([regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions))과 일치하는 문자열을 찾아 배열로 반환한다.
 
@@ -193,7 +193,7 @@ console.log('Chorus lyrics for "Happy": ' + chorus.repeat(27));
 // ["A", "C", "E", "G", "I", "K", "M", "O", "Q", "S", "W", "Y"]
 ```
 
-#### [replace](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace)
+### [replace](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace)
 
 - 문자열 내의 패턴과 일치하는 모든 문자열을 찾아 새 내용으로 바꾼다.
 

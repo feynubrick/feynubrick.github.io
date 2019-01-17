@@ -7,7 +7,7 @@ date: 2019-01-16
 tags: [JavaScript, Study]
 ---
 
-## 콜백(Callback)과 콜백 함수(Callback function)
+# 콜백(Callback)과 콜백 함수(Callback function)
 
 콜백(Callback)은 다른 코드의 인수로서 넘겨주는 실행가능한 코드를 말한다.
 콜백을 넘겨받는 코드는 이 콜백을 필요에따라 즉시 실행할 수도 있고, 아니면 나중에 실행할 수도 있다.
@@ -29,9 +29,9 @@ function otherCode(callback) {
 otherCode(executableCode());
 ```
 
-### 콜백의 실제 사용예
+## 콜백의 실제 사용예
 
-#### iterator
+### iterator
 
 배열의 메서드를 공부할 때 `map`, `reduce`, `forEach` 같은 iterator를 배웠다.
 이 메서드의 첫번째 인자는 함수였는데, 이 함수들도 콜백 함수이다.
@@ -45,7 +45,7 @@ otherCode(executableCode());
 });
 ```
 
-#### 이벤트 핸들러(Event handler)
+### 이벤트 핸들러(Event handler)
 
 다음 예는 DOM(Document Object Model)라는 Web API(Application Programming Language)를 사용해,
 HTML로 만들어진 웹페이지에서 어떤 버튼을 눌렀을 때 콘솔에 "button clicked!"라는 메시지가 뜨도록 만든 것이다.
@@ -68,7 +68,7 @@ document.querySelector('#btn').addEventListener('click', function(e) {
 그런데 자바스크립트는 싱글 스레드(single thread) 언어로 한번에 하나씩 함수호출을 처리하는데, 어떻게 동시에 두가지 일을 할 수 있는가?
 더군다나 이 콜백함수가 많은 시간을 사용하는 함수라고 하면, 이 시간에 생긴 이벤트들은 버려지는 것인가?
 
-## 비동기 호출(Asynchronous Call)
+# 비동기 호출(Asynchronous Call)
 
 자바스크립트는 함수를 하나씩 차례차례 실행하는데, 이를 동기적(synchronous)이라고 한다.
 비동기(asynchronous)란 하나씩 차례차례 실행하는 것이 아니라, 실시간으로 발생하는 요청을 처리하는 것을 의미한다.
@@ -76,7 +76,7 @@ document.querySelector('#btn').addEventListener('click', function(e) {
 
 동기적인 언어인 자바스크립트에서 어떻게 이것이 가능한 걸까?
 
-### 자바스크립트 런타임 환경(JS Runtime Environment)
+## 자바스크립트 런타임 환경(JS Runtime Environment)
 
 자바스크립트가 실행되는 크롬(Chrome), 파이어폭스(Firefox), 엣지(Edge), 사파리(Safari) 같은 웹브라우저는 각각의 런타임 환경을 갖고 있다.
 이 환경에는 개발자가 사용할 수 있는 Web API와 함께 자바스크립트 엔진도 같이 들어있다.
@@ -124,7 +124,7 @@ Web API 컨테이너에서 Web API 호출이 발생하면 언제라도 이 호�
 하지만 그게 무슨 상관인가?
 원하는 대로 비동기"적"으로 작동만 잘 되면 되는 것 아닌가.
 
-### 자바스크립트는 non-blocking 언어
+## 자바스크립트는 non-blocking 언어
 
 하지만 여전히 의문은 남는다.
 만약 호출 스택이 안비워진다면?
@@ -138,11 +138,11 @@ Web API 컨테이너에서 Web API 호출이 발생하면 언제라도 이 호�
 
 "자바스크립트는 non-blocking 언어"라고 말하는 것은 바로 이런 방식을 사용하기 때문이다.
 
-## Web API: 타이밍 함수(timing functions)
+# Web API: 타이밍 함수(timing functions)
 
 여기서는 Web API 중에서도 시간과 관련있는 비동기 함수인 타이밍 함수(timing functions)를 살펴보도록 한다.
 
-### setTimeout
+## setTimeout
 
 ```javascript
 setTimeout(callback, milliseconds)
@@ -158,7 +158,7 @@ setTimeout(function() {
 
 이 함수의 반환 값은 이 함수가 사용하는 타이머의 ID다.
 
-### setInterval
+## setInterval
 
 ```javascript
 setInterval(callback, milliseconds)
@@ -186,13 +186,13 @@ clearInterval(timer);
 
 이러면 반복적으로 실행되지 않는다.
 
-## 어떨 때 비동기를 사용하는가?
+# 어떨 때 비동기를 사용하는가?
 
 - 이벤트 핸들러
 - 타이머에서의 콜백: animation
 - 서버에 자원 요청
 
-## 참고
+# 참고
 
 - 코드스테이츠 프리코스 강의
 - [동시성 모델과 이벤트 루프](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)

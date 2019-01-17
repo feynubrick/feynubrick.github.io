@@ -7,7 +7,7 @@ date:   2019-01-03
 tags: [JavaScript, Study]
 ---
 
-## 객체 초기자(Object initializer)
+# 객체 초기자(Object initializer)
 
 처음에 객체를 배울 때, 다음과 같이 써서 객체를 만들어준다고 배웠다.
 
@@ -37,7 +37,7 @@ console.log(a.foo2); // 2
 console.log(a.foo3); // 3
 ```
 
-## 함수 속성(property)
+# 함수 속성(property)
 
 ```javascript
 var meglomaniac = {
@@ -64,7 +64,7 @@ Array(noOfBrains + 1).join(" " + this.mastermind);
 
 `" " + this.mastermind` 가 여러번 반복되는 코드를 짜고 싶을 때, for문을 직접 써서 하는 방법이 있지만, 이렇게 Array의 `join()` 메서드를 사용하면, 코드 길이를 줄일 수 있다.
 
-## `in` 키워드(keyword)
+# `in` 키워드(keyword)
 
 ```javascript
 var meglomaniac = {
@@ -88,7 +88,7 @@ var trees = ['redwood', 'bay', 'cedar', 'oak', 'maple'];
 6 in trees        // returns false
 ```
 
-## `this` 키워드
+# `this` 키워드
 
 어떤 객체에 함수가 들어있을 때, `this` 키워드는 그 객체를 의미한다. 그러니까 다음 같이 말이다.
 
@@ -108,12 +108,12 @@ expect(currentYear).toBe(2018);
 expect(meglomaniac.calculateAge()).toBe(48);
 ```
 
-## 객체 프로토타입(Object prototype)
+# 객체 프로토타입(Object prototype)
 
 객체 생성자(object constructor)를 사용해서 만든 객체에 속성을 추가할 수 없다.
 이 내용을 이해하려면 먼저 객체 생성자에 대해서 알아야 한다.
 
-## [객체 생성자 (object constructor)](https://www.w3schools.com/js/js_object_constructors.asp)
+# [객체 생성자 (object constructor)](https://www.w3schools.com/js/js_object_constructors.asp)
 다음과 같이 일종의 청사진을 만들어 놓고 객체를 여러개 만들어 채울 수 있다.
 
 ```javascript
@@ -161,12 +161,12 @@ function Person(first, last, age, eyecolor) {
 }
 ```
 
-### 객체 프로토타입([Object prototype](https://www.w3schools.com/js/js_object_prototypes.asp))
+## 객체 프로토타입([Object prototype](https://www.w3schools.com/js/js_object_prototypes.asp))
 자바스크립트에서 생성되는 모든 객체는 prototype이라는 속성(`__proto__`)을 갖고 있는데, 여기에는 해당 객체의 prototype에 해당하는 객체의 참조 주소가 있다. 자바스크립트에서는 모든 것이 객체라고 볼 수 있다. 모든 객체의 prototype 참조를 따라가면 결국 Object.prototype 라는 객체에 도달하기 때문이다. 
 
 그런데 이 프로토타입은 왜 존재하는 것일까? 예를 들어 배열을 하나 선언하면, 메모리 공간에 배열 객체 하나가 생기고, 이 배열은 Array 객체의 메서드를 모두 사용할 수 있다. 만약 이 모든 것이, 프로토타입이라는 방식으로 '참조'되지 않고 그대로 복사되는 형식으로 되어 있었다면, 객체를 하나 만들 때마다 모든 내용을 함께 복사해야하기 때문에 많은 자원이 소모된다.
 
-### 객체 생성자에 새 속성이나 메서드 추가
+## 객체 생성자에 새 속성이나 메서드 추가
 
 위에서 객체 생성자에 새 속성이나 메서드를 추가할 수는 없다고 했지만, `prototype` 키워드를 사용하면 가능하다.
 
@@ -202,7 +202,7 @@ Circle.prototype.describe = function() {
 };
 ```
 
-## 객체 속성의 성격: Mutability
+# 객체 속성의 성격: Mutability
 
 객체의 속성(property)이 외부에서 어떤 경우에 접근 가능한지 알아보자.
 C++ 같은 객체지향 언어에서는 private, public 같은 것으로 변수의 외부로부터의 접근을 각각 막거나, 허용할 수 있다.
@@ -211,7 +211,7 @@ C++ 같은 객체지향 언어에서는 private, public 같은 것으로 변수�
 - public: 외부의 접근을 허용한다. 즉, 외부에서 맘대로 값을 바꿀 수 있다.
 - private: 외부에서 접근 불가하다. 즉, 외부에서 참조자체가 안되기 때문에 값을 바꿀 수 없다.
 
-### public
+## public
 
 - 객체의 속성은 public이고 mutable하다.
 
@@ -254,7 +254,7 @@ aPerson.getFullName = function () {
 console.log(aPerson.getFullName()); // "Smith, John"
 ```
 
-### private
+## private
 
 - 생성자 안의 변수와 생성자의 arguments 는 private하다.
 
