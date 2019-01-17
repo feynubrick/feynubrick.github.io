@@ -49,7 +49,7 @@ for (var i = 0; i < prefixes.length; i++) {
 그래서 이 글에서는 자바스크립트 엔진의 작동방식을 중심으로 이 개념들을 이해해보도록 하겠습니다.
 물론, 문제도 해결해야겠죠!
 
-## 자바스크립트 엔진
+### 자바스크립트 엔진
 
 우리가 자바스크립트 코드를 짜면 이것을 텍스트 파일로 저장하게 돼죠.
 그리고 이것을 자바스크립트 엔진이 들어가 있는 브라우저에 넣게 되는데요.
@@ -64,7 +64,7 @@ for (var i = 0; i < prefixes.length; i++) {
 이런 컴파일러를 JIT 컴파일러(Just-In-Time compiler)라고 하는데요.
 그래서 자바스크립트를 인터프리터 언어(interpreted language)라고 흔히들 부릅니다.
 
-## 실행컨텍스트(Execution context)
+### 실행컨텍스트(Execution context)
 
 실행컨텍스트는 자바스크립트 코드가 엔진에 의해 실행되는 환경을 말하는 추상적인(abstract) 개념입니다.
 그러니까 실재하지 않고 이해를 돕기 위한 개념이라는 것이죠.
@@ -102,7 +102,7 @@ ES5 공식문서에는 다음과 같이 나와 있습니다.
 `with` 문을 사용할 때만 이 둘은 서로 달라집니다.
 `with` 문은 [MDN 문서](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/with)에서 혼동을 줄수 있다는 이유로 사용을 추천하지 않고 있으니 그냥 그렇다고만 알고 넘어가도록 합시다.
 
-## 어휘 환경(Lexical Environment)
+### 어휘 환경(Lexical Environment)
 
 생성단계의 두번째에서 LexcialEnvironment의 상태요소가 결정된다고 말했는데요.
 변수, 함수 각각을 식별하는데 사용되는 식별자와 그 식별자의 어휘적인 계층구조(lexical nesting structure)가 저장되는 곳입니다.
@@ -139,7 +139,7 @@ let foo = function (a) {
 환경 기록은 변수와 함수 선언이 저장되는 곳이고, 바깥 환경 참조는 이 어휘 환경을 둘러싼 다른 어휘 환경을 가리킵니다.
 환경 기록을 사용해서 못하면 바깥 환경 참조를 반복해가면서 식별자 해소를 수행하게 됩니다.
 
-## 스코프(Scope)
+### 스코프(Scope)
 
 어휘 환경보다는 스코프라는 말이 더 익숙할 것입니다.
 자주 사용되는 용어이므로 여기서 정리하고 넘어가도록 하겠습니다.
@@ -150,24 +150,24 @@ let foo = function (a) {
 스코프는 변수 접근 규칙에 따른 식별자의 유효범위를 지칭하는 용어입니다.
 자바스크립트에서는 함수가 선언되는 동시에 자신만의 스코프를 가진다.
 
-### 지역 스코프와 전역 스코프(local scope and global scope)
+#### 지역 스코프와 전역 스코프(local scope and global scope)
 - 스코프는 중첩이 가능: 스코프가 하위 구조를 가질 수 있다 => 스코프 체인
 - 하위 스코프는 상위 스코프의 변수에 접근할 수 있다.
 - 지역변수는 함수 내에서 전역변수보다 높은 우선순위를 갖는다.
 
-### 블록 수준의 스코프(block level scope)와 함수 수준의 스코프(function level scope)
+#### 블록 수준의 스코프(block level scope)와 함수 수준의 스코프(function level scope)
 - 자바스크립트는 함수 수준의 스코프 규칙을 따른다.
 - 예외: `let`, `const` 키워드(ES6)
   - block level scope
 
-### 전역변수, window 객체
+#### 전역변수, window 객체
 - 함수의 외부에서 선언된 모든 변수는 전역 범위
 - 전역 범위를 대표하는 객체: window(브라우저에서)
 
-### 선언 없이 초기화된 변수는 전역변수
+#### 선언 없이 초기화된 변수는 전역변수
 - 선언 없이 변수를 초기화해도 에러는 나지 않지만, 전역 변수로 선언되기 때문에 뜻하지 않은 문제를 만들 수 있다.
 
-### Hoisting
+#### Hoisting
 - 변수 선언은 범위에 따라 선언과 할당으로 분리된다.
 - 자바스크립트 엔진이 내부적으로 변수 선언을 scope의 상단으로 끌어올린다(hoist).
 - 함수의 경우
@@ -175,7 +175,7 @@ let foo = function (a) {
   - 표현식은 변수 선언만 상단으로 hoisting
 
 
-## [클로저(Closures)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+### [클로저(Closures)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
 
 위에서 실행컨텍스트가 처리될 때, 거치는 두단계 중 두번째는 실행 단계였습니다.
 실행 단계가 끝나면 실행컨텍스트는 종료되고 소멸하는데요.
@@ -221,7 +221,7 @@ callAlert(); // private variable
 이제 이 `callAlert` 함수를 불러오면,
 참조된 어휘 환경을 통해 식별자 `a` 가 가리키는 값인 `'private variable'`을 의도대로 참조할 수 있게 됩니다.
 
-# 다시, 문제로
+## 다시, 문제로
 
 처음에 이 공부를 시작하게 했던 문제로 돌아갑시다.
 
@@ -248,9 +248,9 @@ for (var i = 0; i < prefixes.length; i++) {
 
 문제를 알았으니 이젠 어떻게 해결하면 될까요?
 
-## 해법 1: IIFE 사용
+### 해법 1: IIFE 사용
 
-### [즉시실행함수(IIFE)](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)
+#### [즉시실행함수(IIFE)](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)
 
 Immediately-Invoked Function Expression (즉시 작동되는 함수 표현)
 
@@ -287,7 +287,7 @@ for (var i = 0; i < prefixes.length; i++) {
 
 자, 제출해보니 통과됩니다. 문제가 해결됐습니다!
 
-## 해법 2: `let` 키워드 사용
+### 해법 2: `let` 키워드 사용
 
 두번째 해법은 ES6에서 추가된 `let` 키워드를 사용하는 것입니다.
 이 키워드는 블록 수준의 스코프를 만드는데요.
@@ -308,7 +308,7 @@ for (let i = 0; i < prefixes.length; i++) {
 
 이 경우에도 제출해보니 잘 통과됩니다.
 
-# 도움받은 내용
+## 도움받은 내용
 
 이 글에서 정리된 내용은 구글링을 통해 찾은 여러 페이지의 내용을 제 문제를 해결하는 데 맞게 짜깁기한 것입니다.
 자바스크립트 초보인 제가 알 수 없는 내용은 다음의 페이지들을 만든 "거인의 어깨 위에 올라서서" 알게된 것입니다.
