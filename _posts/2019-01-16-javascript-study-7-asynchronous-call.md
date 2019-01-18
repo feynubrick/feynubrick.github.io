@@ -15,7 +15,8 @@ tags: [JavaScript, Study]
 콜백 함수(callback function)는 그런 함수를 말한다.
 그러니까 다른 코드의 인자(argument)로서 넘겨주는 함수를 말한다.
 
-콜백을 매개변수(parameter)로 넘겨받는 코드는 이 콜백을 필요에 따라 즉시 실행(동기, synchrously)하거나, 나중에 실행(asynchronously)할 수 있다.
+콜백을 매개변수(parameter)로 넘겨받는 코드는 이 콜백을 필요에 따라 즉시 실행(동기, synchrously)하거나,
+나중에 실행(asynchronously)할 수 있다.
 
 ```javascript
 function executableCode() {
