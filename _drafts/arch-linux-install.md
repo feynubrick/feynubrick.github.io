@@ -7,14 +7,13 @@ date: 2019-01-16
 tags: [Linux, How-to]
 ---
 
-## Arch linux?
-
+# Arch linux?
 
 the following installation process are based on archwiki
 
-## Pre-installation
+# Pre-installation
 
-### verify boot mode
+## verify boot mode
 check the system has been booted on UEFI or not
 
 ```
@@ -24,10 +23,10 @@ check the system has been booted on UEFI or not
 there are bunch of things!
 that means it's in UEFI boot mode.
 
-### connect to internet
+## connect to internet
 I will use wifi
 
-#### check the driver status
+### check the driver status
 check if the driver for my card loaded
 
 ```
@@ -69,7 +68,7 @@ the message is like:
 ```
 the kernel module is successfully loaded and the interface is up!
 
-#### connect to wifi network
+### connect to wifi network
 using `netctl` instead
 
 ```
@@ -135,166 +134,308 @@ to edit the partition,
 
 delete all partitions and make new partitions
 
+| name | mount point | partition name | size     | file system         | format |
+| ---- | ----------- | -------------- | -------- | ------------------- | ------ |
+| boot | /boot       | nvme0n1p1      | 550M     | EFI system          | FAT32  |
+| swap | none        | nvme0n1p2      | 2G       | Linux swap          | swap   |
+| root | /           | nvme0n1p3      | 32G      | Linux root (x86-64) | ext4   |
+| home | /home       | nvme0n1p4      | the rest | Linux home          | ext4   |
 
-name
-mount point
-partition name
-size
-file system
-format
-boot
-/boot
-nvme0n1p1
-550M
-EFI system
-FAT32
-swap
-none
-nvme0n1p2
-2G
-Linux swap
-swap
-root
-/
-nvme0n1p3
-32G
-Linux root (x86-64)
-ext4
-home
-/home
-nvme0n1p4
-Linux home
-ext4
 check the partition table again
+```
 # fdisk -l
+```
+
 ## format the partitions
+
+```
 # mkfs.fat -F32 /dev/nvme0n1p1
 # mkswap /dev/nvme0n1p2
 # swapon /dev/nvme0n1p2
 # mkfs.ext4 /dev/nvme0n1p3
 # mkfs.ext4 /dev/nvme0n1p4  
+```
+
 ## mount the partition
+
+```
 # mount /dev/nvme0n1p3 /mnt
 # mkdir /mnt/{boot,home}
 # mount /dev/nvme0n1p1 /mnt/boot
 # mount /dev/nvme0n1p4 /mnt/home
+```
+
 # Installation
+
 ## select the mirrors
+
+```
 # pacman -Sy pacman-contrib
 # cp /etc/pacman.d/mirrorlist{,.backup}
 # cp /etc/pacman.d/mirrorlist{,.tmp}
 # sed -i 's/^Server/#Server/' /etc/pacman.d/mirrorlist.tmp
+```
+
 edit with vim, `mirrorlist.tmp` file to uncomment the countries to test for speed, for example:
+
+```
 :%s/Japan\n#/Japan\r/g
+```
+
 uncomment for the following countries:
 * South Korea
 * Japan
 * Taiwan
-** tip: do not uncomment `kaist` server, it is not a proper mirror server
+
+tip: do not uncomment `kaist` server, it is not a proper mirror server
+
+```
 # rankmirrors -n 5 /etc/pacman.d/mirrorlist.tmp > /etc/pacman.d/mirrorlist
+```
+
 ## install base package
+
+```
 # pacstrap /mnt base base-devel vim wpa_supplicant
-** `wpa_supplicant`: for wifi connection using `netctl`
+```
+
+- `wpa_supplicant`: for wifi connection using `netctl`
+
 # Configure the system
+
 before going further let's copy the configuration files we used
+
+```
 # cp {,/mnt}/etc/netctl/wifi_1102
 # cp {,/mnt}/etc/pacman.d/mirrorlist.tmp
 # cp {,/mnt}/etc/pacman.d/mirrorlist.backup
+```
+
 ## Fstab
+
+```
 # genfstab -U /mnt >> /mnt/etc/fstab
+```
+
 ## chroot
+
+```
 # arch-chroot /mnt
+```
+
 ## timezone
+
+```
 # ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
 # hwclock --systohc
+```
+
 ## localization
+
 uncomment `en_US.UTF-8 UTF-8` and other needed locales in `/etc/locale.gen`, and generate them with:
+
+```
 # locale-gen
+```
+
 in my case, I uncomment `en_US.UTF-8 UTF-8` only.
+
 ## network configuration
-# echo sy-arch > /etc/hostname
+
+```
+# echo WHATEVER_YOU_WANT > /etc/hostname
+```
+
 edit `/etc/hosts`
+
+```
 127.0.0.1    localhost
 ::1          localhost
-127.0.1.1    sy-arch.localdomain    sy-arch
+127.0.1.1    WHATEVER_YOU_WANT.localdomain    WHATEVER_YOU_WANT
+```
+
 ## set root password and create a regular user
+
+```
 # passwd
 # useradd -m -g users -G wheel -s /bin/bash syoh
 # passwd syoh
 # visudo
+```
+
 then uncomment the following
+
+```
 # %wheel ALL=(ALL) ALL
+```
+
 ## boot loader
+
+```
 # bootctl install
 # vim /boot/loader/loader.conf
+```
+
 delete all contents and add the following
+
+```
 default arch
 timeout 2
+```
+
 then create and edit `/boot/loader/entries/arch.conf`
 and write down the following and save:
+
+```
 title Arch Linux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
 options root=
+```
+
 what we need is `PARTUUID` of the root partition
 to know the `PARTUUID` we need to use command `blkid`
 since it is very long and complicated string for human, it's better to copy and paste it.
 we can insert the output of blkid 
+
+```
 # blkid >> /boot/loader/entries/arch.conf
+```
+
 and then copy and paste using editor
 OR, in alternative and better way, we can use vim's command
+
+```
 :r !blkid
+```
 then yank and paste:
+
+```
 PARTUUD="xxxxxxxx-......"
+```
 the completed contents should look like
+
+```
 title Arch Linux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
 options root=PARTUUD=xxxxxxxx-...... rw
+```
+
 ## reboot
+
+```
 # exit
 # umount -R /mnt
 # reboot
+```
+
 # Post installation
+
 ## internet connection
+
 get the name of wireless device's interface
+
+```
 $ ip link
+```
+
 it's same old `wlp2s0`.
 let's use the conf file we copied
+
+```
 $ sudo netctl start wifi_1102
+```
+
 ## install microcode fix for intel processor
+
+```
 $ sudo pacman -S intel-ucode
+```
+
+and edit `/boot/loader/entries/arch.conf` like this:
+
+```
+title Archlinux
+linux /vmlinuz-linux
+initrd /intel-ucode.img
+initrd /initramfs-linux.img
+options root=PARTUUID=xxxxxxxx-...... rw
+```
+
 ## install Xorg
+
+```
 $ sudo pacman -S xorg xf86-input-libinput
-** `xf86-input-libinput`: libraries for input devices
+```
+- `xf86-input-libinput`: libraries for input devices
+
 install it using default options
+
 ## install bumblebee
+
 bumblebee: mimic nvidia optimus
 check graphics devices and install latest nvidia driver
+
+```
 $ lspci -k | grep -EA2 "(VGA|3D)"
+```
+
 can identify "intel UHD graphics 620" and "Geforce MX150"
 install `bumblebee` and required packages
+
+```
 $ sudo pacman -S bumblebee mesa nvidia xf86-video-intel
+```
+
 add user to `bumblebee` group and enable `bumblebeed.service`
+
+```
 $ sudo gpasswd -a syoh bumblebee
 $ sudo systemctl enable bumblebeed.service
+```
+
 ## install display manager: lightdm
+
 use `lightdm`
+
+```
 $ sudo pacman -S lightdm lightdm-gtk-greeter
+```
+
 set the default greeter to `lightdm-gtk-greeter`
 by modifying `/etc/lightdm/lightdm.conf`
+
+```
 [Seat:*]
 ...
 greeter-session=lightdm-gtk-greeter
 ...
+```
+
 enable lightdm on systemd
+
+```
 $ sudo systemctl enable lightdm.service
+```
+
 ## Xorg configuration check
+
 make skeleton for xorg.conf
+
+```
 $ sudo Xorg :0 -configure
+```
+
 edit touchpad configuration
+
+```
 $ sudo ln -s /usr/share/X11/xorg.conf.d/40-libinput.conf /etc/X11/xorg.conf.d/40-libinput.conf
+```
+
 and edit `40-libinput.conf` file by following command and add the red-faced lines:
+
+```
 $ sudo vim /etc/X11/xorg.conf.d/40-libinput.conf
 ------------------------------------------------
 ...
@@ -304,3 +445,165 @@ Section "InputClass"
     Option "NaturalScrolling" "true"
     Option "Tapping" "on"
     ...
+```
+
+# install xfce
+
+```
+$ sudo pacman -S xfce4 xfce4-goodies xarchiver gvfs
+```
+
+and reboot
+(gvfs for trash support, mounting removable media)
+
+# install fonts
+
+```
+$ sudo pacman -S ttf-liberation
+```
+
+# install firefox
+
+```
+$ sudo pacman -S firefox
+```
+
+# install yay
+
+```
+$ sudo pacman -S git
+$ git clone https://aur.archlinux.org/yay.git
+$ cd yay
+$ makepkg -si
+```
+
+# install google-chrome
+
+```
+$ yay -S google-chrome
+```
+
+# install fonts
+
+```
+$ sudo pacman -S terminus-font ttf-roboto noto-fonts ttf-liberation ttf-ubuntu-font-family adobe-source-code-pro-fonts
+$ yay -S noto-fonts-cjk ttf-d2coding ttf-kopub ttf-nanum ttf-font-awesome-4
+```
+
+## font fallback 설정
+
+```
+$ mkdir ~/.config/fontconfig
+$ vim ~/.config/fontconfig/font.conf
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+    <alias>
+        <family>serif</family>
+        <prefer>
+            <family>Liberation Serif</family>
+            <family>KoPubBatang</family>
+        </prefer>
+    </alias>
+
+    <alias>
+        <family>sans-serif</family>
+        <prefer>
+            <family>Liberation Sans</family>
+            <family>Noto Sans CJK KR</family>
+        </prefer>
+    </alias>
+
+    <alias>
+        <family>monospace</family>
+        <prefer>
+            <family>Liberation Mono</family>
+            <family>D2Coding</family>
+        </prefer>
+    </alias>
+</fontconfig>
+```
+
+# install dropbox
+
+```
+$ yay -S dropbox
+$ dropbox &
+```
+
+and login
+
+# make chrome default browser
+
+```
+$ sudo pacman -S xdg-utils
+$ xdg-settings set default-web-browser google-chrome.desktop
+```
+
+# hangul setting
+
+```
+$ sudo pacman -S python3
+$ yay -S nimf
+```
+
+add the followings to `~/.xprofile`
+
+```
+export GTK_IM_MODULE=nimf
+export QT4_IM_MODULE="nimf"
+export QT_IM_MODULE=nimf
+export XMODIFIERS="@im=nimf"
+xmodmap -e 'remove mod1 = Alt_R'
+xmodmap -e 'keycode 108 = Hangul'
+xmodmap -e 'remove control = Control_R'
+xmodmap -e 'keycode 105 = Hangul_Hanja'
+```
+
+to setting:
+
+```
+$ nimf-settings
+```
+
+# install network manager
+
+```
+$ sudo pacman -S networkmanager networkmanger-applet
+$ sudo systemctl enable NetworkManager
+```
+
+and reboot
+
+# install vscode
+
+```
+$ sudo pacman -S code
+```
+
+# vundle install and set vimrc
+
+```
+$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+$ vim
+```
+
+들어가서 `:PluginInstall`
+`vimrc`는 dropbox에 저장해놓은 것에서 가져옴.
+
+# screen 스크롤시 깨짐현상
+
+```
+/etc/X11/xorg.conf.d/20-intel.conf
+Section "Device"
+  Identifier  "Intel Graphics"
+  Driver      "intel"
+  Option      "TearFree" "true"
+EndSection
+```
+
+# pulse audio
+
+```
+$ sudo pacman -S pulseaudio pavucontrol 
+```
