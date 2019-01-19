@@ -263,6 +263,7 @@ function printB() {
 
 var printA;
 
+// 표현식
 printA = function() {
   //function content
 }

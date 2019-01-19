@@ -48,7 +48,7 @@ otherCode(executableCode());
 
 ### 이벤트 핸들러(Event handler)
 
-다음 예는 DOM(Document Object Model)라는 Web API(Application Programming Language)를 사용해,
+다음 예는 DOM(Document Object Model)라는 Web API(Application Programming interface)를 사용해,
 HTML로 만들어진 웹페이지에서 어떤 버튼을 눌렀을 때 콘솔에 "button clicked!"라는 메시지가 뜨도록 만든 것이다.
 
 ```javascript
@@ -108,12 +108,12 @@ document.querySelector('#btn').addEventListener('click', function(e) {
 자바스크립트가 싱글 스레드(single thread) 언어라는 것은 자바스크립트 엔진에 호출 스택은 하나밖에 없다는 말이다.
 그러니까 하나씩 차례차례 처리된다는 것이다.
 
-Web API 컨테이너는 호출 스택에서 보내온 이벤트 핸들러, HTTP/AJAX 요청, 타이밍 함수(setInterval, setTimeout) 같은 Web API 호출을 가지고 있다가 각각의 Web API에 대한 호출 조건이 만족되면 이를 콜백 대기열로 보낸다.
+Web API 컨테이너(container)는 호출 스택에서 보내온 이벤트 핸들러, HTTP/AJAX 요청, 타이밍 함수(setInterval, setTimeout) 같은 Web API 호출을 가지고 있다가 각각의 Web API에 대한 호출 조건이 만족되면 이를 콜백 대기열로 보낸다.
 
 콜백 대기열(callback queue)은 쌓여있는 콜백들을 호출 스택이 완전히 비워질 때까지 기다리다가 FIFO(First In First Out) 방식으로,
 그러니까 처음 들어온 것을 먼저 콜스택으로 옮긴다.
 남은 콜백들은 방금 보낸 콜백이 호출 스택에서 완전히 처리되기 전까지 기다리다가,
-호출 스택이 완전히 비워지면 역시 가장 먼저 들어온 콜백을 콜스택으로 옮기고 같은 작업을 반복한다.
+호출 스택이 완전히 비워지면 그 다음으로 먼저 들어온 콜백을 콜스택으로 옮기고 같은 작업을 반복한다.
 
 이벤트 루프(event loop)는 호출 스택과 콜백 대기열을 계속 감시한다.
 호출 스택이 비었을 때 콜백 대기열에게 콜백을 넘기라고 알려주는 일 역시 이 이벤트 루프가 한다.
@@ -139,7 +139,7 @@ Web API 컨테이너에서 Web API 호출이 발생하면 언제라도 이 호�
 
 "자바스크립트는 non-blocking 언어"라고 말하는 것은 바로 이런 방식을 사용하기 때문이다.
 
-# Web API: 타이밍 함수(timing functions)
+# Web API의 타이밍 함수(timing functions)
 
 여기서는 Web API 중에서도 시간과 관련있는 비동기 함수인 타이밍 함수(timing functions)를 살펴보도록 한다.
 
