@@ -78,26 +78,44 @@ var function_name = function (input) {
 0, 1, 1, 2, 3, 5, 8, 13, ...
 ```
 
+두가지 방법을 사용하여 n번째 수를 구하는 함수를 만들어보자.
+
 ### 반복문 사용
 
 ```javascript
 var fibonacci = function(n) {
-    var series = [0, 1];
 
     // base case
     if (n === 1) {
-        return [0];
+        return 0;
     } else if (n === 2) {
-        return series;
+        return 1;
     }
 
-    for (var i = 2; i <= n; i++) {
-        var currentNumber = series[i - 2] + series[i - 1];
-        series.push(currentNumber);
+    var left2 = 0;
+    var left1 = 1;
+    var num;
+    for (var i = 3; i <= n; i++) {
+        num = left2 + left1;
+        left2 = left1;
+        left1 = num;
     }
 
-    return series;
+    return num;
 }
 ```
 
 ### 재귀 
+
+```javascript
+var fibonacci = function (n) {
+    // base case
+    if (n === 1) {
+        return 0;
+    } else if (n === 2) {
+        return 1;
+    }
+
+    return fibonacci(n - 2) + fibonacci(n - 1);
+}
+```
