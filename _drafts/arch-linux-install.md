@@ -35,6 +35,7 @@ check if the driver for my card loaded
 
 the `k` option means "show kernel drivers handling each device and also kernel modules capable of handling it", according to man page.
 the output is:
+
 ```
 02:00.0 Network controller: Intel Corporation Wireless 8265 / 8275 (rev 78)
         Subsystem: Intel Corporation Wireless 8265 / 8275
@@ -56,16 +57,19 @@ then bring the interface up with:
 ```
 
 no output => check the messages for the driver module named `iwlwifi`
+
 ```
 # dmesg | grep iwlwifi
 ```
 
 the message is like:
+
 ```
 [    12.870378] iwlwifi 0000:02:00.0: enabling device (0000 -> 0002)
 [    13.171346] iwlwifi 0000:02:00.0: loaded firmware version 36.e91976c0.0 op_mode iwlmvm
 [    13.252395] iwlwifi 0000:02:00.0: Detected Intel(R) Dual Band Wireless AC 8265, REV=0x230
 ```
+
 the kernel module is successfully loaded and the interface is up!
 
 ### connect to wifi network
@@ -106,7 +110,7 @@ then do the following and try again.
 # ip link set wlp2s0 down
 ```
 
-if there is no error, check th` connection by following:
+if there is no error, check the connection by following:
 
 ```
 # ping google.com
@@ -142,6 +146,7 @@ delete all partitions and make new partitions
 | home | /home       | nvme0n1p4      | the rest | Linux home          | ext4   |
 
 check the partition table again
+
 ```
 # fdisk -l
 ```
@@ -153,7 +158,7 @@ check the partition table again
 # mkswap /dev/nvme0n1p2
 # swapon /dev/nvme0n1p2
 # mkfs.ext4 /dev/nvme0n1p3
-# mkfs.ext4 /dev/nvme0n1p4  
+# mkfs.ext4 /dev/nvme0n1p4
 ```
 
 ## mount the partition
@@ -183,9 +188,9 @@ edit with vim, `mirrorlist.tmp` file to uncomment the countries to test for spee
 ```
 
 uncomment for the following countries:
-* South Korea
-* Japan
-* Taiwan
+- South Korea
+- Japan
+- Taiwan
 
 tip: do not uncomment `kaist` server, it is not a proper mirror server
 
@@ -296,7 +301,7 @@ options root=
 what we need is `PARTUUID` of the root partition
 to know the `PARTUUID` we need to use command `blkid`
 since it is very long and complicated string for human, it's better to copy and paste it.
-we can insert the output of blkid 
+we can insert the output of blkid
 
 ```
 # blkid >> /boot/loader/entries/arch.conf
@@ -605,5 +610,5 @@ EndSection
 # pulse audio
 
 ```
-$ sudo pacman -S pulseaudio pavucontrol 
+$ sudo pacman -S pulseaudio pavucontrol
 ```
