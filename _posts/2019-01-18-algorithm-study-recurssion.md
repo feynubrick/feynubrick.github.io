@@ -84,7 +84,6 @@ var function_name = function (input) {
 
 ```javascript
 var fibonacci = function(n) {
-
     // base case
     if (n === 1) {
         return 0;
@@ -105,7 +104,7 @@ var fibonacci = function(n) {
 }
 ```
 
-### 재귀 
+### 재귀
 
 ```javascript
 var fibonacci = function (n) {
