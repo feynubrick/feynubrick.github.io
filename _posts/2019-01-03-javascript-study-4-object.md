@@ -113,7 +113,7 @@ expect(meglomaniac.calculateAge()).toBe(48);
 객체 생성자(object constructor)를 사용해서 만든 객체에 속성을 추가할 수 없다.
 이 내용을 이해하려면 먼저 객체 생성자에 대해서 알아야 한다.
 
-# [객체 생성자 (object constructor)](https://www.w3schools.com/js/js_object_constructors.asp)
+## [객체 생성자 (object constructor)](https://www.w3schools.com/js/js_object_constructors.asp)
 다음과 같이 일종의 청사진을 만들어 놓고 객체를 여러개 만들어 채울 수 있다.
 
 ```javascript

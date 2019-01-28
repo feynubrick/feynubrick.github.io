@@ -115,7 +115,7 @@ UEFI 모드로 부트된 것인지 아닌지 확인하려면 다음의 명령어
 
 > "각 장치를 다루는 커널 드라이버는 물론 그것을 다룰 수 있는 커널 모듈을 보여줍니다."
 
-라는 군요.
+라는군요.
 
 위 명령어의 출력 결과는 다음과 같았습니다.
 
@@ -173,7 +173,7 @@ UEFI 모드로 부트된 것인지 아닌지 확인하려면 다음의 명령어
 여기에 나온 값들만 적절하게 바꿔줍니다.
 
 저의 경우 `ip link`로 확인한 인터페이스가 `wlp2s0` 였고,
-집 와이파이의 ESSID(와이파이 이름)이 home이기 때문에 다음과 같이 바꿨습니다.
+집 와이파이의 ESSID(와이파이 이름)이 "home"이기 때문에 다음과 같이 바꿨습니다.
 패스워드는 공개하지 않고, `password`라 쓰겠습니다.
 
 ```
@@ -306,7 +306,7 @@ mirrorlist에 올라있는 서버를 위에서부터 차례대로 사용하는 �
 - Taiwan
 - United States
 
-팁: 카이스트 서버는 주석처리하시기 바랍니다. 사용해보니 문제가 많았습니다.
+> 팁: 카이스트 서버는 주석처리하시기 바랍니다. 사용해보니 문제가 많았습니다.
 
 이제 `rankmirrors` 를 사용하기 위해 관련 패키지를 설치하고, 이를 이용해 빠른 순서대로 mirrorlist를 정렬합니다.
 
@@ -323,7 +323,7 @@ mirrorlist에 올라있는 서버를 위에서부터 차례대로 사용하는 �
 # pacstrap /mnt base base-devel vim wpa_supplicant
 ```
 
-- vim: 편집용 도구입니다.
+- `vim`: 편집용 도구입니다.
 - `wpa_supplicant`: 와이파이 연결에 필요한 `netctl`을 사용하는 데 필요합니다.
 
 # 시스템 설정하기
@@ -538,7 +538,7 @@ $ lspci -k | grep -EA2 "(VGA|3D)"
 - intel UHD graphics 620
 - Geforce MX150
 
-bumblebee와 이것에 필요한 패키지를 설치합니다.
+`bumblebee`와 이것에 필요한 패키지를 설치합니다.
 
 ```
 $ sudo pacman -S bumblebee mesa nvidia xf86-video-intel
