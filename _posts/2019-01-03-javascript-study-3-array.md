@@ -148,7 +148,7 @@ console.log(numbers); // [1, 2, 3]
 ## [slice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
 
 - \[**immutable**\]
-- 배열은 건드리지 않고, 배열의 일부(`begin`부터 `end`(포함되지 않음) 까지)만 "복사해" 반환한다. \
+- 배열은 건드리지 않고, 배열의 일부(`begin`부터 `end`(포함되지 않음) 까지)만 "복사해" 반환한다.
 
 ```javascript
 var numbers = [1, 2, 3, 4, 5];
@@ -157,7 +157,7 @@ console.log(numbers.slice(2)); // [3, 4, 5]
 console.log(numbers.slice(1, 3)); // [2, 3, 4]
 console.log(numbers.slice(3, 100)); // [4, 5]
 console.log(numbers.slice(3, 1)); // []
-console.log(numbers); // [1, 2, 3, 4, 5]
+console.log(numbers.slice()); // [1, 2, 3, 4, 5]
 ```
 
 ## [splice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
@@ -223,7 +223,7 @@ console.log(numbers.indexOf(1000)); // -1
 ```
 
 ### 참고하면 좋은 메서드
-- `includes()`: 구형 브라우저에서 안됨
+- `includes()`: 구형 브라우저에서 사용할 수 없다.
 - `find()`: callback 함수를 직접 넣어 원하는 조건을 만족하는 첫번째 항목을 찾아낼 수 있다.
 - `findIndex()`: `find()`와 같은 역할을 하지만, 항목이 아닌 인덱스를 반환한다.
 
@@ -259,6 +259,9 @@ var numbers = [1, 3, 5, 7, 8];
 console.log(odds.every(isOdd)); // true
 console.log(odds.every( element => element % 2 === 1)); // true
 console.log(numbers.every( (element, index, array) => element % 2 === 1)); // false
+console.log(numbers.every( function (element) {
+    return element % 2 === 1;
+})); // false
 ```
 
 ## [some()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
@@ -277,6 +280,9 @@ var numbers = [1, 3, 5, 7, 8];
 console.log(numbers.some(isEven)); // true
 console.log(numbers.some( (element, index, array) => element % 2 === 0)); // true
 console.log(odds.some( (element, index, array) => element % 2 === 0)); // false
+console.log(numbers.some( function (element) {
+    return element % 2 === 0;
+})); // false
 ```
 
 ## [fill()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill)
@@ -339,6 +345,12 @@ console.log('numbers: ', numbers); // [5, 4, 3, 2, 1]
 var numbers = [1, 30, 4, 21];
 numbers.sort();
 console.log(numbers); // [1, 21, 30, 4]
+console.log(numbers.sort(function (a, b) {
+    return a - b;
+})); // [1, 4, 21, 30]
+console.log(numbers.sort(function (a, b) {
+    return b - a;
+})); // [30, 21, 4, 1]
 
 var months = ['March', 'Jan', 'Feb', 'Dec'];
 months.sort(months);
