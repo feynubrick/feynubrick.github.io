@@ -8,6 +8,7 @@ tags: [JavaScript, Study, Algorithm]
 ---
 
 # 재귀(Recurssion)?
+
 재귀는 자기 자신을 내부에서 불러 문제를 해결하는 방법이다.
 
 자바스크립트 코드로 표현하면 다음과 같다.

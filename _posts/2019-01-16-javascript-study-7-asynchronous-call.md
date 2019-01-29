@@ -48,7 +48,7 @@ otherCode(executableCode());
 
 ### 이벤트 핸들러(Event handler)
 
-다음 예는 DOM(Document Object Model)라는 Web API(Application Programming interface)를 사용해,
+다음 예는 DOM(Document Object Model)라는 Web API(Application Programming ㅑnterface)를 사용해,
 HTML로 만들어진 웹페이지에서 어떤 버튼을 눌렀을 때 콘솔에 "button clicked!"라는 메시지가 뜨도록 만든 것이다.
 
 ```javascript

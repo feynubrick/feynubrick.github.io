@@ -13,15 +13,15 @@ tags: [JavaScript, Study]
 
 # this 를 binding하는 5가지 패턴
 
-- global reference
-- function invocation
-- construction mode
-- method invocation
+- 전역 스코프에서 참조(global reference)
+- 함수 호출(function invocation)
+- 생성 모드(construction mode)
+- 메서드 호출(method invocation)
 - `.call()`  or `.apply()` invocation
 
-## 패턴 1: global reference
+## 패턴 1: 전역 스코프에서 참조할 때
 
-- global object(전역 객체)인 `window` 객체에 `this` 바인딩
+- 전역 객체(global object)인 `window` 객체에 `this` 바인딩
 
 ```javascript
 var name = 'Global Variable';
@@ -34,10 +34,10 @@ function foo() {
 foo(); // "Global Variable"
 ```
 
-## 패턴 2: function invocation 
+## 패턴 2: 함수 호출(function invocation)
 
 - global object(전역 객체)인 `window` 객체에 `this` 바인딩
-- 그러니까 함수 invocation이 일어나도 `this`는 여전히 `window`와 바인딩 되어있다는 말이다.
+- 그러니까 함수 호출(invocation)이 일어나도 `this`는 여전히 `window`와 바인딩 되어있다는 말이다.
 - 다른 언어들과는 좀 다르다.
 
 ```javascript
@@ -53,7 +53,7 @@ function outer() {
 outer();
 ```
 
-##  패턴 3: method invocation
+##  패턴 3: 메서드 호출(method invocation)
 
 - 메서드: 객체 안에서 정의된 함수
 - 이 메서드를 불러올 때, 메서드가 정의된 객체에 `this` 바인딩
@@ -87,10 +87,10 @@ console.log(obj.fn() === obj); // true
 사실 패턴 2와 3은 같은 것을 의미한다.
 글로벌 컨텍스트의 경우에는 `window.function()`에서 `window.` 이 생략된 것이라 볼 수 있기 때문이다.
 
-## 패턴 4: construction mode
+## 패턴 4: 생성 모드(construction mode)
 
-- new 연산자로 생성된 function 영역의 this
-- 이 invocation으로 생성되는 객체에 `this` 바인딩
+- `new` 연산자로 생성된 function 영역의 `this`
+- 이 호출로 생성되는 객체에 `this` 바인딩
 
 ```javascript
 function F(v) {
@@ -104,7 +104,7 @@ console.log(f.val); // WooHoo!
 console.log(val); // ReferenceError
 ```
 
-## 패턴 5: .call() or .apply() invocation
+## 패턴 5: .call() or .apply() 호출(invocation)
 
 - 각 함수의 첫 argument인 객체에 `this` 바인딩
 - 수동으로 `this` 바인딩을 서술하기 위해 사용 
@@ -113,10 +113,12 @@ console.log(val); // ReferenceError
 function identify() {
     return this.name.toUpperCase();
 }
+
 function speak() {
     var greeting = "Hello, I'm " + identify.call(this);
     console.log(greeting);
 }
+
 var me = { name: 'Kyle' };
 var you = { name: 'Reader' };
 
@@ -208,7 +210,7 @@ function Product(name, price) {
     this.name = name;
     this.price = price;
     this.print = function () {
-        console.log(this.constructor.name + '// ' + this.name + '\t' + this.price + ' USD');
+        console.log(this.constructor.name + ' // ' + this.name + '\t' + this.price + ' USD');
     };
 }
 
@@ -229,8 +231,8 @@ cheese.print(); // Q1
 fun.print(); // Q2
 ```
 
-- Q1 => Food: feta	5 USD
-- Q2 => Toy: robot	40 USD
+- Q1 => Food // feta	5 USD
+- Q2 => Toy // robot	40 USD
 
 # bind
 인자로 넘겨준 객체와 연결된 새로운 함수를 반환한다.
