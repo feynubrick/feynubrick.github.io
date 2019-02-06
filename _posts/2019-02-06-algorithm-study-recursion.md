@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "알고리듬 공부 // 재귀(Recurssion)"
+title: "알고리듬 공부 // 재귀(recursion)"
 comments: true
 author: feynubrick
 date: 2019-02-06
@@ -44,7 +44,7 @@ tags: [JavaScript, Study, Algorithm, CodeStates]
 
 내가 잘 모르고 있던 재귀를 다시 공부해보자.
 
-# 재귀(Recurssion)?
+# 재귀(recursion)?
 
 구글에서 "recursion"을 검색하면 다음과 같이 "Did you mean: recursion" 이라고 나온다. 클릭하면? 같은 페이지가 나온다.
 
