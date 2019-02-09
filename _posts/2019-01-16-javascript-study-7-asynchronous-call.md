@@ -85,7 +85,7 @@ document.querySelector('#btn').addEventListener('click', function(e) {
 
 <figure>
   <img src="https://cdn-images-1.medium.com/max/800/1*zeKjWCjyAGZ9JN4fvnWsiA.png" alt="runtime-concept"/>
-  <figcaption>자바스크립트 런타임 환경</figcaption>
+  <figcaption>자바스크립트 런타임 환경. 출처: [Medium 글](https://medium.com/@olinations/the-javascript-runtime-environment-d58fa2e60dd0)</figcaption>
 </figure>
 
 위의 그림을 살펴보자.

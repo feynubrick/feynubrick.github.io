@@ -369,8 +369,8 @@ setTimeout(red.method.bind(red), 1000); // Q9
 - Q5: window, undefined, undefined
 - Q6: red, green, blue
 - Q7: purple, green, blue
-- Q8: red, green, blue
-- Q9: red, green, blue
+- Q8: red, undefined, undefined
+- Q9: red, undefined, undefined
 
 Q8에서 purple은 red, green, blue, yellow 가 아닌 다른 객체를 말한다.
 
