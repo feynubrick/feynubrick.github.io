@@ -451,7 +451,8 @@ options root=
 :r !blkid
 ```
 
-그 다음 다음 부분을 복사합니다.
+그 다음 `/` 파티션을 설치한 파티션인, `nvme0n1p3`의 PARTUUID 부분을 복사합니다.
+그러니까, 다음 부분을 말이죠.
 
 ```
 PARTUUD="xxxxxxxx-......"
@@ -609,14 +610,13 @@ Section "InputClass"
     ...
 ```
 
-# install xfce
+# install qtile
 
 ```
-$ sudo pacman -S xfce4 xfce4-goodies xarchiver gvfs
+$ sudo pacman -S qtile xterm networkmanager
 ```
 
 and reboot
-(gvfs for trash support, mounting removable media)
 
 # install fonts
 
