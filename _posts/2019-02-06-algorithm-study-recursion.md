@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "알고리듬 공부 // 재귀(recursion)"
+title: "알고리즘 공부 // 재귀(recursion)"
 comments: true
 author: feynubrick
 date: 2019-02-06
@@ -9,12 +9,12 @@ tags: [JavaScript, Study, Algorithm, CodeStates]
 
 # 들어가면서
 
-나는 재귀를 그저 자신을 다시 불러오는 함수를 사용하는 알고리듬 정도로만 알고 있었다.
-그래서 피보나치 수열(Fibonacci Series) 문제 같은 비교적 간단히 이해할 수 있는 알고리듬만 공부해보고는 "이거 순차적으로 풀어도 되는건데, 별거 아니겠지?" 라는 생각을 가졌지만,
+나는 재귀를 그저 자신을 다시 불러오는 함수를 사용하는 알고리즘 정도로만 알고 있었다.
+그래서 피보나치 수열(Fibonacci Series) 문제 같은 비교적 간단히 이해할 수 있는 알고리즘만 공부해보고는 "이거 순차적으로 풀어도 되는건데, 별거 아니겠지?" 라는 생각을 가졌지만,
 한편으로는 이해하기 어려웠다.
-순차적 문제 해결에 익숙해져서 재귀적 알고리듬은 생각해보지 않았기 때문이다.
+순차적 문제 해결에 익숙해져서 재귀적 알고리즘은 생각해보지 않았기 때문이다.
 
-그리고 순차적 알고리듬만으로도 여태까지 큰 문제없이 잘 살아왔다.
+그리고 순차적 알고리즘만으로도 여태까지 큰 문제없이 잘 살아왔다.
 코드스테이츠(CodeStates)의 이머시브(Immersive)과정에 가기 위한 시험인 IAT를 치르기 전까지는...
 
 ## IAT 시험 통과 실패... 그리고 다시 공부
@@ -224,11 +224,11 @@ function reverse(str) {
 }
 ```
 
-## 재귀적 알고리듬의 문제 해결 전략
+## 재귀적 알고리즘의 문제 해결 전략
 
 자기자신을 호출하는 형식을 충분히 몸으로 익혔다.
 그러나 이런 형식보다 더 중요한 것은 문제 해결 전략이다.
-계속 살펴봤듯이 재귀적 알고리듬은 문제를 좀 더 단순한 문제로 쪼개어 문제를 해결한다.
+계속 살펴봤듯이 재귀적 알고리즘은 문제를 좀 더 단순한 문제로 쪼개어 문제를 해결한다.
 이런 방식을 "나눠서 정복하라"라 부른다.
 
 # 나눠서 정복하라!
@@ -245,9 +245,9 @@ function reverse(str) {
 
 ## Example 7: Merge Sort
 
-배열 `arr`이 있을 때, 인덱스 `a` 부터 인덱스 `b`까지 순서대로 정렬하는 알고리듬이다.
+배열 `arr`이 있을 때, 인덱스 `a` 부터 인덱스 `b`까지 순서대로 정렬하는 알고리즘이다.
 이 문제는 전체 문제를 여러개의 하위문제로 쪼갠 뒤 합치는 방식으로 정렬하는데,
-이 알고리듬에서 가장 중요한 부분은 정렬된 두 배열을 합치는(merge) 과정이기 때문에 이름에 merge가 붙게 됐다.
+이 알고리즘에서 가장 중요한 부분은 정렬된 두 배열을 합치는(merge) 과정이기 때문에 이름에 merge가 붙게 됐다.
 
 merge sort를 이해하려면, 이 merge 과정을 반드시 이해해야한다.
 카드를 순서대로 정렬하고 있다고 해보자.
@@ -267,7 +267,7 @@ merge sort를 이해하려면, 이 merge 과정을 반드시 이해해야한다.
 - 정복하기: 두 개의 하위 배열을 `mergeSort`를 사용해 재귀적으로 정렬한다.
 - 합치기: 두 개의 정렬된 하위배열로 정렬된 답을 만든다.
 
-알고리듬을 이해했으니 이제 실제 코드를 보면서 살펴보자.
+알고리즘을 이해했으니 이제 실제 코드를 보면서 살펴보자.
 
 ```javascript
 function mergeSort(arr, a, b) {
@@ -354,7 +354,7 @@ merge([2,4,5,1,3,6], 0, 2, 5)
 sorted: 1,2,3,4,5,6
 ```
 
-이 결과를 보면 이 알고리듬이 어떻게 "나눠서 정복하라!" 방식으로 작동하는지 볼 수 있다.
+이 결과를 보면 이 알고리즘이 어떻게 "나눠서 정복하라!" 방식으로 작동하는지 볼 수 있다.
 그림으로 그려보면 다음과 같다.
 
 <figure>
@@ -402,7 +402,7 @@ Maximum-subarray 문제는 존재하는 배열의 각 항목의 합이 최대가
 - 정복하기: 왼쪽과 오른쪽의 경우 재귀를 사용해 최대값을 주는 하위 배열을 찾고, 양쪽에 걸치는 경우는 그저 쭉 계산한다.
 - 합치기: 세 결과를 비교해 최대값을 주는 하위 배열을 반환한다.
 
-다음은 이 알고리듬을 사용한 코드다.
+다음은 이 알고리즘을 사용한 코드다.
 
 ```javascript
 function findMaxCrossingSubarray (arr, low, mid, high) {
@@ -485,7 +485,7 @@ console.log(`maximum subarray: ${result.low} to ${result.high} and it gives ${re
 11 maximum subarray: 2 to 2 and it gives 3
 ```
 
-이 알고리듬을 더 잘 이해하기 위해 아래의 구조도를 통해 문제가 어떤 순서로 어떻게 해결되는지 살펴보자.
+이 알고리즘을 더 잘 이해하기 위해 아래의 구조도를 통해 문제가 어떤 순서로 어떻게 해결되는지 살펴보자.
 
 `arr: [1,-4,3,-4]`
 
@@ -508,12 +508,12 @@ console.log(`maximum subarray: ${result.low} to ${result.high} and it gives ${re
 
 # 참고
 
-- [재귀 알고리듬과 예제 (psuedocode)](https://www.cs.odu.edu/~toida/nerzic/content/recursive_alg/rec_alg.html)
-- [재귀 알고리듬 설명 (파이썬)](https://hackernoon.com/algorithms-explained-recursion-54831247dd85)
+- [재귀 알고리즘과 예제 (psuedocode)](https://www.cs.odu.edu/~toida/nerzic/content/recursive_alg/rec_alg.html)
+- [재귀 알고리즘 설명 (파이썬)](https://hackernoon.com/algorithms-explained-recursion-54831247dd85)
 - [재귀는 어렵지 않아요 (JS)](https://medium.freecodecamp.org/recursion-is-not-hard-858a48830d83)
 - [Introduction to Algorithm 3rd Edition, Thomas H. Cormen et al.](https://www.amazon.com/Introduction-Algorithms-3rd-MIT-Press/dp/0262033844/ref=sr_1_1?ie=UTF8&qid=1549426550&sr=8-1&keywords=introduction+to+algorithms)
 
 # 공부할만한 사이트
 
-- [Techie Delight](https://www.techiedelight.com/recursion-practice-problems-with-solutions/): 재귀 알고리듬 문제와 해법이 나와있다.
+- [Techie Delight](https://www.techiedelight.com/recursion-practice-problems-with-solutions/): 재귀 알고리즘 문제와 해법이 나와있다.
 - [HackerRank](https://www.hackerrank.com): 관련 문제를 풀어볼 수 있다. 테스트도 제공하고 있어, 자신이 해결한 방식이 일반적인 상황에서도 작동하는지 확인할 수 있다.
