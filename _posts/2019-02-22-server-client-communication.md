@@ -17,7 +17,6 @@ tags: [Network, Study, CodeStates]
 따라서 서버와 클라이언트 간에는 고객(클라이언트)이 보낸 요청(request)과 서버가 요청을 처리한 뒤, 고객에게 넘겨주는 응답(response)가 오간다.
 이런 서버-클라이언트 모델은 다음 그림을 보면 쉽게 이해할 수 있다.
 
-server-client-model.jpg
 <figure>
   <img src="/assets/server-client-model.jpg" alt="serverclientmodel"/>
   <figcaption>서버와 클라이언트 간의 관계를 묘사한 그림</figcaption>
