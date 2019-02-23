@@ -10,7 +10,10 @@ tags: [JavaScript, Study, DataStructure, CodeStates]
 # Tree
 
 ## 그림으로 표현
-![tree-structure](/assets/tree-structure.png)
+
+<figure>
+  <img src="/assets/tree-structure.png" alt="tree-structure"/>
+</figure>
 
 ## Pseudocode
 
@@ -35,7 +38,9 @@ tags: [JavaScript, Study, DataStructure, CodeStates]
 노드와 엣지로 이루어진 비선형 데이터 구조.
 유한한 갯수의 노드들과 이들 한쌍을 연결하는 엣지들로 구성되어있다.
 
-![graph](/../assets/graph.png)
+<figure>
+  <img src="/assets/graph.png" alt="graph"/>
+</figure>
 
 ## Pseudocode
 
@@ -44,7 +49,9 @@ tags: [JavaScript, Study, DataStructure, CodeStates]
 
 # Hash Table
 
-![hash-table](/assets/hash-table.png)
+<figure>
+  <img src="/assets/hash-table.png" alt="hash-table"/>
+</figure>
 
 ## Pseudocode
 
