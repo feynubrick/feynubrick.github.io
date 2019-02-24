@@ -23,7 +23,7 @@ N X N 체스판이 주어지고, 여기에 서로 공격하지 않도록 N개의
 가로 4칸, 세로 4칸(4 X 4)의 체스판을 생각해보자.
 
 <figure>
-  <img src="/assets/nqueens-4by4-chessboard.png" alt="stack"/>
+  <img src="/assets/figures/nqueens-4by4-chessboard.png" alt="stack"/>
   <figcaption>가로 4칸, 세로 4칸(4 X 4)의 체스판에 Queen이 4개 올라간 모습.
   체스판에 배치된 퀸이 모두 서로를 공격하지 못하는 위치에 배치되어 있다.
   이 배치는 4 X 4에서 가능한 배치 2개 중 하나다.</figcaption>

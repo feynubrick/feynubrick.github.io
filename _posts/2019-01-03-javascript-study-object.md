@@ -3,7 +3,7 @@ layout: post
 title: "자바스크립트 공부 // 객체(Object)"
 comments: true
 author: feynubrick
-date:   2019-01-03
+date:   2019-01-03T14:00:00Z
 tags: [JavaScript, Study]
 ---
 

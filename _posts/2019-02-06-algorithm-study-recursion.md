@@ -48,7 +48,7 @@ tags: [JavaScript, Study, Algorithm, CodeStates]
 
 구글에서 "recursion"을 검색하면 다음과 같이 "Did you mean: recursion" 이라고 나온다. 클릭하면? 같은 페이지가 나온다.
 
-![google-search-recursion](/assets/recursion-google.png)
+![google-search-recursion](/assets/figures/recursion-google.png)
 
 `[피식, 깔깔, 하하]` 중 어떤 반응이라도 보였다면, 슬프지만 당신은 진성 이과충(?)이다. 어떻게 이런 유머에 웃을 수 있는가...(?) 
 
@@ -358,7 +358,7 @@ sorted: 1,2,3,4,5,6
 그림으로 그려보면 다음과 같다.
 
 <figure>
-  <img src="/assets/merge-sort-example.png" alt="merge-sort-example"/>
+  <img src="/assets/figures/merge-sort-example.png" alt="merge-sort-example"/>
   <figcaption>
   [5,2,4,6,1,3] 배열을 merge sort를 사용해 정렬하는 방법을 묘사한 그림.
   회색은 정렬되지 않은 배열을, 연한 녹색은 정렬된 배열을 의미한다.

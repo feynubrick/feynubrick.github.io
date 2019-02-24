@@ -3,7 +3,7 @@ layout: post
 title: "자바스크립트 공부 // 프로토타입(Prototype)"
 comments: true
 author: feynubrick
-date: 2019-02-14
+date: 2019-02-24
 tags: [JavaScript, Study, CodeStates]
 ---
 

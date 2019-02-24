@@ -10,7 +10,7 @@ tags: [JavaScript, Study, DataStructure, CodeStates]
 # Stack
 
 <figure>
-  <img src="/assets/stack.jpg" alt="stack"/>
+  <img src="/assets/figures/stack.jpg" alt="stack"/>
   <figcaption>Stack 이 무엇인지 어떤 일을 어떻게 할 수 있는지 보여주는 그림.</figcaption>
 </figure>
 
@@ -37,7 +37,7 @@ LIFO(Last In First Out). 쌓아놓고 위부터 뽑아감
 # Queue
 
 <figure>
-  <img src="/assets/queue.png" alt="queue"/>
+  <img src="/assets/figures/queue.png" alt="queue"/>
   <figcaption>Queue가 무엇인지 어떤 일을 어떻게 할 수 있는지 보여주는 그림.</figcaption>
 </figure>
 
@@ -65,7 +65,7 @@ FIFO(First in First Out). 대기줄을 생각하면 이해할 수 있다. 나중
 # Linked List
 
 <figure>
-  <img src="/assets/linked-list.png" alt="linked-list"/>
+  <img src="/assets/figures/linked-list.png" alt="linked-list"/>
   <figcaption>Linked List가 무엇인지 어떤 일을 어떻게 할 수 있는지 보여주는 그림.</figcaption>
 </figure>
 

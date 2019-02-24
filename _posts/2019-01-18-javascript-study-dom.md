@@ -65,5 +65,5 @@ function createButton() {
 }
 ```
 
-[my-post-async]: {{ site.baseurl }}{% post_url 2019-01-16-javascript-study-7-asynchronous-call %}
+[my-post-async]: {{ site.baseurl }}{% post_url 2019-01-16-javascript-study-asynchronous-call %}
 [javascript-runtime-env]: http://dolszewski.com/javascript/javascript-runtime-environment

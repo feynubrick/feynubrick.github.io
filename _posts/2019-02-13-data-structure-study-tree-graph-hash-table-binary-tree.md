@@ -12,7 +12,7 @@ tags: [JavaScript, Study, DataStructure, CodeStates]
 ## 그림으로 표현
 
 <figure>
-  <img src="/assets/tree-structure.png" alt="tree-structure"/>
+  <img src="/assets/figures/tree-structure.png" alt="tree-structure"/>
 </figure>
 
 ## Pseudocode
@@ -39,7 +39,7 @@ tags: [JavaScript, Study, DataStructure, CodeStates]
 유한한 갯수의 노드들과 이들 한쌍을 연결하는 엣지들로 구성되어있다.
 
 <figure>
-  <img src="/assets/graph.png" alt="graph"/>
+  <img src="/assets/figures/graph.png" alt="graph"/>
 </figure>
 
 ## Pseudocode
@@ -50,7 +50,7 @@ tags: [JavaScript, Study, DataStructure, CodeStates]
 # Hash Table
 
 <figure>
-  <img src="/assets/hash-table.png" alt="hash-table"/>
+  <img src="/assets/figures/hash-table.png" alt="hash-table"/>
 </figure>
 
 ## Pseudocode

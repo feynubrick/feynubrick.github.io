@@ -18,7 +18,7 @@ tags: [Network, Study, CodeStates]
 이런 서버-클라이언트 모델은 다음 그림을 보면 쉽게 이해할 수 있다.
 
 <figure>
-  <img src="/assets/server-client-model.jpg" alt="serverclientmodel"/>
+  <img src="/assets/figures/server-client-model.jpg" alt="serverclientmodel"/>
   <figcaption>서버와 클라이언트 간의 관계를 묘사한 그림</figcaption>
 </figure>
 
