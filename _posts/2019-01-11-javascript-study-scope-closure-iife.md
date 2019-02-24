@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "자바스크립트 공부 // 5. 스코프(Scope), 클로저(Closure), 즉시실행함수(IIFE)"
+title: "자바스크립트 공부 // 스코프(Scope), 클로저(Closure), 즉시실행함수(IIFE)"
 comments: true
 author: feynubrick
-date:   2019-01-11
+date:   2019-01-11T14:00:00Z
 tags: [JavaScript, Study]
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "자바스크립트 공부 // 3. 배열(Array)"
+title: "자바스크립트 공부 // 배열(Array)"
 comments: true
 author: feynubrick
 date:   2019-01-03

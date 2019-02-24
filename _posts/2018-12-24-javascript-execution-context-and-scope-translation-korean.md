@@ -3,7 +3,7 @@ layout: post
 comments: true
 title: 자바스크립트 // 참고. 실행 컨텍스트와 스코프 [번역]
 author: feynubrick
-date:   2018-12-24
+date:   2018-12-24T16:00:00Z
 tags: [JavaScript, Study, Translation]
 ---
 

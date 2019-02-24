@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "자바스크립트 공부 // 2. 수(Number)와 수학(Math)"
+title: "자바스크립트 공부 // 수(Number)와 수학(Math)"
 comments: true
 author: feynubrick
-date:   2018-12-24
+date:   2018-12-24T14:00:00Z
 tags: [JavaScript, Study]
 ---
 

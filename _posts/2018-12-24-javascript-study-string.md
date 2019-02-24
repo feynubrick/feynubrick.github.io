@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "자바스크립트 공부 // 1. 문자열(String)"
+title: "자바스크립트 공부 // 문자열(String)"
 comments: true
 author: feynubrick
-date:   2018-12-24
+date:   2018-12-24T12:00:00Z
 tags: [JavaScript, Study]
 ---
 

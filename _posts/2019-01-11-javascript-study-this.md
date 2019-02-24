@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "자바스크립트 공부 // 6. this"
+title: "자바스크립트 공부 // this"
 comments: true
 author: feynubrick
-date:   2019-01-11
+date:   2019-01-11T19:00:00Z
 tags: [JavaScript, Study]
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "자바스크립트 공부 // 8. DOM(Document Object Model)"
+title: "자바스크립트 공부 // DOM(Document Object Model)"
 comments: true
 author: feynubrick
 date: 2019-01-18
