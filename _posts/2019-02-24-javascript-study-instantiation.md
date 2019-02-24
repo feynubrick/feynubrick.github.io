@@ -9,140 +9,48 @@ tags: [JavaScript, Study, CodeStates]
 
 # 인스턴스(Instance)
 
-# 인스턴스를 만드는 4가지 방법
-
-- Functional instantiation
-- Functional shared instantiation
-- Prototypal instantiation
-- Pseudoclassical instantiation
-
-# 프로토타입(Prototype)?
-
-[객체에 관한 이전 포스트]({{ site.baseurl }}{% post_url 2019-01-03-javascript-study-object %})에서 객체 생성자와 프로토타입을 사용법 관점에서 얕게 이야기했었다.
-이 포스트에서는 프로토타입에 대해 좀 더 깊게 알아보도록 하자.
-
-이 포스트에서 사용했던 코드를 보면서 이야기를 시작해보자.
-
-```javascript
-function Circle (radius) {
-    this.radius = radius;
-}
-
-var simpleCircle = new Circle(10);
-
-Circle.prototype.describe = function() {
-    return "This circle has a radius of: " + this.radius;
-};
-
-console.log(simpleCircle.describe()); // This circle has a radius of: 10
-```
-
-위 코드를 보면, 제일 윗줄에 선언된 `Circle` 생성자에는 `radius`라는 속성만 존재하고 `describe`라는 메서드는 존재하지 않았다.
-이런 상태에서 `simpleCricle`이라는 객체를 `Circle` 생성자를 이용해 새로 만들었다.
-그러니까 변수 `simpleCircle`에는 `Circle`에 의해 새로 만들어진 객체의 주소가 들어간다.
-다음으로 `Circle`의 `prototype` 속성에 `describe`라는 메서드를 추가했다.
-마지막 줄에서 `simpleCircle`의 메서드인 `describe`를 불러와서 결과를 출력한다. 
-
-잠깐, 분명 우리가 만들었던 `Circle` 생성자에는 `describe`라는 메서드는 커녕 속성도 없었는데,
-어떻게 `prototype`에 있는 메서드를 용케 찾아냈을까?
-
-만약에 생성자가 생성자 안에 만들어진 속성을 모두 복사하는 방식으로 새로운 객체를 만들었다면,
-위의 두 객체의 `describe` 메서드는 실행되어서는 안된다.
-그런 메서드는 존재하지 않아서, 복사되지 않았을 것이기 때문이다.
-
-대체 무슨일이 일어난 걸까?
-
-# 프로토타입 연결(Prototype Link)과 프로토타입 객체(Prototype Object)
-
-## prototype 속성
-
-우선 위에서 `describe` 함수를 추가해줬었던 `prototype` 속성이 무엇인지부터 확인해보자.
-`Circle`을 `console.dir()`을 통해 확인하면 다음과 같다.
-
-<figure>
-  <img src="/assets/figures/prototype-constructor-console-dir.png" alt="constructor"/>
-  <!-- <figcaption></figcaption> -->
-</figure>
-
-여기서 보면 우리가 코드에서 해준 대로 `prototype`이라는 속성에 `describe`가 잘 들어간 것을 볼 수 있다.
-
-
-
-
-
-
-
-
-더 자세히 말하면, `simpleCircle.describe()`를 실행하면 먼저 `simpleCircle` 객체에서 `describe`라는 이름을 갖는 식별자를 찾는다.
-당연히 못 찾았으므로, 이제는 프로토타입에서 `describe`를 찾는다.
-이렇게해서 describe를 실행한 것이다.
-
-위의 방식을 보니 좀 이해가 됐는지 모르겠다.
-자바스크립트는 프로토타입을 사용해 클래스의 상속을 흉내내고 있다.
-
-# Object.create() 메서드
-
-위의 예에서 prototype에 직접 메서드를 추가하는 방식을 사용했다.
-비슷한 일을 `Object.create()`를 사용해서 구현할 수 있다.
-
-```javascript
-
-function Circle (radius) {
-    this.radius = radius;
-    this.describe = function() {
-        return "This circle has a radius of: " + this.radius;
-    };
-}
-
-const circle = Circle(5);
-
-var simpleCircle = Object.create(circle);
-simpleCirCle.radius = 20;
-var colouredCircle = Object.create(circle);
-colouredCircle.colour = "red";
-
-console.log(simpleCircle.colour); // undefined
-console.log(colouredCircle.colour); // "red"
-
-console.log(simpleCircle.describe()); // This circle has a radius of: 10
-console.log(colouredCircle.describe()); // This circle has a radius of: 5
-```
-
-요약하면, `Object.create` 함수는 인자로 들어있는 객체를 프로토타입으로 하는 새로운 객체를 만들어내는 함수다.
-
-
-
-
-
-# 참고
-
-- 코드스테이츠의 Immersive 코스 강의
-- [오승환님의 블로그](https://medium.com/@bluesh55/javascript-prototype-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-f8e67c286b67)
-- [[Youtube의 FunFunFunction 영상]`__proto__` vs `prototype`](https://www.youtube.com/watch?v=DqGwxR_0d1M)](---
-layout: post
-title: "자바스크립트 공부 // 인스턴스화(Instantiation)"
-comments: true
-author: feynubrick
-date: 2019-02-24
-tags: [JavaScript, Study, CodeStates]
----
-
-# 인스턴스(Instance)
+먼저 인스턴스가 어떤 뜻인지 알아보자.
 
 > an example or single ocurrence of something.    - from Google Dictionary
+
+구글 사전의 결과에 따르면, 뭔가가 한번 나타나는 것을 의미한다고 한다.
+뭔가 알쏭달쏭한 말이다.
+
+다시 위키피디아에 검색해보자.
 
 > a concrete occurrence of any object, existing usually the runtime of a computer program.
 > ...
 > ... in prototype based programming, instantiation is instead done by copying(cloning) a prototype instance.    - from Wikipedia
 
+여기서는 좀 더 명확히 설명이 되어있다.
+대충 의역을 섞어서 자연스런 한국말로 바꿔보면,
+
+> 객체가 구체적이고 실질적으로 나타난 것. 보통 컴퓨터 프로그램의 런타임동안 존재함.
+> ...
+> ... 프로토타입 기반의 프로그래밍에서, 인스턴스는 프로토타입 인스턴스를 복사해서 만들어진다.
+
+너무 의역을 많이 했지만, 뜻은 잘 전달 될 것이다.
+어쨌든 간에 객체를 실제로 만들어낸 것을 뜻하는 것이 인스턴스다.
+
+그럼 이 인스턴스는 어떻게 만들 수 있을까?
+
 # 인스턴스를 만드는 4가지 방법
+
+프로토타입 기반의 언어인 자바스크립트에서는 다음의 네가지 방법으로 인스턴스를 만들 수 있다.
 
 - Functional instantiation
 - Functional shared instantiation
 - Prototypal instantiation
 - Pseudoclassical instantiation
 
-Functional instantiation을 이해하기 위해서는 프로토타입을 먼저 잘 이해할 필요가 있다.
+적절히 번역할 수 없어서 일단 영어로 써놨다.
+
+첫번째로 나온 Functional instantiation은 함수의 내부에서 객체를 만든 뒤에 그 객체를 반환해서 만드는 방법이다.
+두번째인 Functional shared instantiation은 functional instantiation에 extend를 사용해 메서드가 들어가 있는 객체를 인스턴스에 붙여주는 방법이다.
+세번째인 Prototypal instantiation은 프로토타입을 사용한 방식으로 Object.create()라는 메서드를 사용한다.
+네번째인 Pseudoclassical instantiation은 가장 자주 쓰이는 방법으로 new 연산자와 프로토타입을 섞어 사용하는 방법이다. 
+
+이 모든 것을 살펴보기 전에 프로토타입을 다시한번 공부해보자.
 
 # 프로토타입(Prototype)
 
