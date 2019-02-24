@@ -43,7 +43,7 @@ console.log(colouredCircle.describe()); // This circle has a radius of: 5
 그러나 프로토타입은 그런 방식을 사용하지 않는다.
 복사하지 않고 단지 참조만 할 뿐이다.
 그러니까 프로토타입에 새로운 메서드를 추가하면,
-생성자 `Circle`로 만들어진 객체가 갖고있는 prototype 참조를 사용해 메서드에 접근할 수 있는 것이다.
+생성자 `Circle`로 만들어진 객체가 갖고있는 프로토타입(prototype) 참조를 사용해 메서드에 접근할 수 있는 것이다.
 
 더 자세히 말하면, `simpleCircle.describe()`를 실행하면 먼저 `simpleCircle` 객체에서 `describe`라는 이름을 갖는 식별자를 찾는다.
 당연히 못 찾았으므로, 이제는 프로토타입에서 `describe`를 찾는다.
@@ -82,10 +82,12 @@ console.log(colouredCircle.describe()); // This circle has a radius of: 5
 
 요약하면, `Object.create` 함수는 인자로 들어있는 객체를 프로토타입으로 하는 새로운 객체를 만들어내는 함수다.
 
-# Prototype Link와 Prototype Object
+# 프로토타입 연결(Prototype Link)과 프로토타입 객체(Prototype Object)
+
 
 
 # 참고
 
 - 코드스테이츠의 Immersive 코스 강의
 - [오승환님의 블로그](https://medium.com/@bluesh55/javascript-prototype-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-f8e67c286b67)
+- [[Youtube의 FunFunFunction 영상]`__proto__` vs `prototype`](https://www.youtube.com/watch?v=DqGwxR_0d1M)
