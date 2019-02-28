@@ -35,7 +35,7 @@ tags: [JavaScript, Study, React, CodeStates]
 
 <figure>
   <img src="/assets/figures/react-virtual-dom-reconciliation.png" alt="diffing"/>
-  <figcaption>Diffing을 표현한 그림. 빨간색으로 표시된 부분이 업데이트된 부분이다.</figcaption>
+  <figcaption>Diffing을 표현한 그림. 빨간색으로 표시된 부분이 업데이트된 부분이다. 출처: https://www.oreilly.com/library/view/learning-react-native/9781491929049/ch02.html</figcaption>
 </figure>
 
 리엑트는 변화가 생긴 DOM 노드를 버전관리처럼 이전과 비교해 어떤 것이 달라졌는지를 확인한다.
