@@ -15,7 +15,6 @@ tags: [Study, CodeStates]
 
 <figure>
   <img src="/assets/figures/ggugx2_coupon.png" alt="server-client"/>
-  <figcaption>HTTP 2.0 연결에서 스트림. 스트림을 이해할 필요는 없지만 HTTP에서 데이터 흐름이 클라이언트에서 서버 방향으로만 이루어진다는 것을 보여준다. 출처: <a href="https://developers.google.com/web/fundamentals/performance/http2/">Google Developers의 웹 기초</a> </figcaption>
 </figure>
 
 카페 고객이 사용하는 클라이언트 앱이, 고객이 간단하게 버튼을 눌러 적립을 요청하면, 지정된 가게에 적립해 달라는 요청을 서버에게 보낸다.
