@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: http://feynubrick.github.io/sitemap.xml
