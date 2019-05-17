@@ -297,7 +297,7 @@ mirrorlist에 올라있는 서버를 위에서부터 차례대로 사용하는 �
 저는 특정 나라들의 서버를 주석 해제하는 방식으로 진행할 것인데요.
 
 ```
-:sed -i 's/South Korea\n#/South Korea\r/' /etc/pacman.d/mirrorlist.tmp
+sed -i 's/South Korea\n#/South Korea\r/' /etc/pacman.d/mirrorlist.tmp
 ```
 
 다음의 나라들을 같은 방법으로 주석해제합니다.
