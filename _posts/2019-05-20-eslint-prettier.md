@@ -295,7 +295,14 @@ $ npm install eslint-plugin-prettier --save-dev
 이는 바로 다음 절에서 확인해보도록 합시다.
 
 그외 설명이 되지 않은 나머지는 각 모듈의 npm 페이지의 추천 방법대로 적용한 것입니다.
-각 설정에 관심있거나, 여기에 소개되지 않은 플러그인을 적용하고 싶으신 분은 각 플러그인의 페이지에서 옵션을 확인하시면 될 것입니다.
+그리고 react를 사용할 때 발생할만한 에러를 막아주는 옵션도 몇개 추가했습니다.
+
+- "parserOptions"."ecmaVersion": 6 => ES6 문법 사용가능
+- "parserOptions"."sourceType": "module" => import/export 사용가능
+- "env"."es6": true => ES6의 전역변수 사용가능
+- "env"."browser": true => DOM 사용가능
+
+각 설정에 관심있거나, 여기에 소개되지 않은 플러그인을 추가해서 적용하고 싶으신 분은 각 플러그인의 페이지에서 옵션을 확인하시면 될 것입니다.
 
 ## 내가 원하는 대로 바꾸기
 
